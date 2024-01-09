@@ -5,6 +5,7 @@ import '../../repository/user_repository.dart';
 import '../base/base_usecase.dart';
 import '../base/params.dart';
 
+
 class LoginUseCase extends BaseUseCase<BaseError, LoginUseCaseParams, User> {
   final UserRepository _userRepository;
 
@@ -16,8 +17,7 @@ class LoginUseCase extends BaseUseCase<BaseError, LoginUseCaseParams, User> {
   Future<Either<BaseError, User>> execute(
       {required LoginUseCaseParams params}) async {
     return Future.value(
-      (await _userRepository.loginWithEmail(
-              email: params.emailOrPhone, password: params.password))
+      (await _userRepository.loginWithEmail(params.loginRequest))
           .fold((l) => Left(l), (result) async {
         return _userRepository.saveUser(result);
       }),
@@ -26,17 +26,15 @@ class LoginUseCase extends BaseUseCase<BaseError, LoginUseCaseParams, User> {
 }
 
 class LoginUseCaseParams extends Params {
-  final String emailOrPhone;
-  final String password;
+  final LoginRequest loginRequest;
 
   LoginUseCaseParams({
-    required this.emailOrPhone,
-    required this.password,
+    required this.loginRequest,
   });
 
   @override
   Either<AppError, bool> verify() {
-    if (Validator.isEmpty(emailOrPhone)) {
+    if (Validator.isEmpty(loginRequest.emailOrPhone)) {
       return Left(
         AppError(
           type: ErrorType.uiEmptyEmail,
@@ -44,7 +42,7 @@ class LoginUseCaseParams extends Params {
           error: ErrorInfo(message: ''),
         ),
       );
-    } else if (!Validator.validateEmail(emailOrPhone)) {
+    } else if (!Validator.validateEmail(loginRequest.emailOrPhone)) {
       return Left(
         AppError(
           type: ErrorType.uiInvalidEmail,
@@ -52,7 +50,7 @@ class LoginUseCaseParams extends Params {
           error: ErrorInfo(message: ''),
         ),
       );
-    } else if (Validator.isEmpty(password)) {
+    } else if (Validator.isEmpty(loginRequest.password)) {
       return Left(
         AppError(
           type: ErrorType.uiEmptyPassword,
@@ -65,3 +63,5 @@ class LoginUseCaseParams extends Params {
     }
   }
 }
+
+

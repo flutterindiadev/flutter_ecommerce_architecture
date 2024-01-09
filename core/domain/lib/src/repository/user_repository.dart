@@ -1,9 +1,10 @@
-import 'package:dartz/dartz.dart';
-import 'package:shared/shared.dart';
+import 'package:domain/domain.dart';
 
 abstract class UserRepository {
-  Future<Either<NetworkError, User>> loginWithEmail(
-      {required String email, required String password});
+  Future<Either<NetworkError, User>> loginWithEmail(LoginRequest loginRequest);
+
+  Future<Either<NetworkError, User>> signUpWithEmail(
+      SignUpRequest signUpRequest);
 
   Future<Either<DatabaseError, User>> saveUser(User user);
 }
