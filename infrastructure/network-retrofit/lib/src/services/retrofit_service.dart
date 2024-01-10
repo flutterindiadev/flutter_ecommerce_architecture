@@ -11,7 +11,7 @@ abstract class RetrofitService {
     return _RetrofitService(dio, baseUrl: dio.options.baseUrl);
   }
   @POST("signup")
-  Future<HttpResponse<UserResponseEntity>> signUp(
+  Future<HttpResponse<UserResponseEntity>> signup(
     @Body() SignUpRequest signUpRequest,
   );
 }

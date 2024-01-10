@@ -11,9 +11,9 @@ class SignUpUsecase extends BaseUseCase<BaseError, SignupParams, User> {
       {required SignupParams params}) async {
     return Future.value(
       (await _userRepository.signUpWithEmail(params.signUpRequest))
-      //     .fold((l) => Left(l), (result) async {
-      //   return _userRepository.saveUser(result);
-      // }),
+          .fold((l) => Left(l), (result) async {
+        return _userRepository.saveUser(result);
+      }),
     );
   }
 }

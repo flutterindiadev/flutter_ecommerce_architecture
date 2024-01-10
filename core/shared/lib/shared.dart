@@ -13,7 +13,6 @@ export 'src/model/error/network_error.dart';
 export 'src/model/error_info.dart';
 export 'src/model/login_request.dart';
 export 'src/model/request/sign_up_request.dart';
-export 'src/model/signup_request.dart';
 export 'src/model/user.dart';
 export 'src/shared_base.dart';
 export 'src/utils/mapper/base_layer_transformer.dart';

@@ -19,7 +19,7 @@ class NetworkAdapter implements NetworkPort {
   Future<Either<NetworkError, User>> signUpWithEmail(
       {required SignUpRequest signUpRequest}) async {
     var response = await safeApiCall(
-      apiService.signUp(signUpRequest),
+      apiService.signup(signUpRequest),
     );
     return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
   }
