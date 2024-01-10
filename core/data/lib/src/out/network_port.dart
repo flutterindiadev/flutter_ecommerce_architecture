@@ -1,3 +1,7 @@
+import 'package:domain/domain.dart';
+
 abstract class NetworkPort {
-  void fetchPosts();
+  Future<Either<NetworkError, User>> loginWithEmail();
+  Future<Either<NetworkError, User>> signUpWithEmail(
+      {required SignUpRequest signUpRequest});
 }

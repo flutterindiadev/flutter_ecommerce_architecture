@@ -5,7 +5,6 @@ import '../../repository/user_repository.dart';
 import '../base/base_usecase.dart';
 import '../base/params.dart';
 
-
 class LoginUseCase extends BaseUseCase<BaseError, LoginUseCaseParams, User> {
   final UserRepository _userRepository;
 
@@ -63,5 +62,3 @@ class LoginUseCaseParams extends Params {
     }
   }
 }
-
-

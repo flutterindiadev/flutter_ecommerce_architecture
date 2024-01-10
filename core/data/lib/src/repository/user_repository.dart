@@ -24,7 +24,6 @@ class UserRepositoryImpl extends UserRepository {
   @override
   Future<Either<NetworkError, User>> signUpWithEmail(
       SignUpRequest signUpRequest) {
-    // TODO: implement signUpWithEmail
-    throw UnimplementedError();
+    return networkPort.signUpWithEmail(signUpRequest: signUpRequest);
   }
 }

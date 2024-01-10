@@ -2,6 +2,7 @@ import 'package:data/data.dart';
 import 'package:database_floor/src/app_database.dart';
 import 'package:database_floor/src/app_persistence_adapter.dart';
 import 'package:injectable/injectable.dart';
+
 import '../database_config.dart';
 import '../database_migration.dart';
 
