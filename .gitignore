@@ -15,9 +15,9 @@
 *.iws
 
 # Add idea runconfigurations to git
-!.idea/
+.idea/
 .idea/*
-!.idea/runConfigurations/
+.idea/runConfigurations/
 .idea/libraries/
 
 # The .vscode folder contains launch configuration and tasks you configure in

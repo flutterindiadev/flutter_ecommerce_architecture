@@ -17,8 +17,7 @@ class UserRepositoryImpl extends UserRepository {
 
   @override
   Future<Either<DatabaseError, User>> saveUser(User user) {
-    // TODO: implement saveUser
-    throw UnimplementedError();
+    return databaseProvider.saveUser(user);
   }
 
   @override
