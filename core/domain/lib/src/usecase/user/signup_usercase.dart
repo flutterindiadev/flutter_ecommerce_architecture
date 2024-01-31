@@ -1,13 +1,13 @@
 import 'package:domain/domain.dart';
 import 'package:domain/src/usecase/base/base_usecase.dart';
 
-class SignUpUsecase extends BaseUseCase<BaseError, SignupParams, User> {
+class SignUpUsecase extends BaseUseCase<BaseError, SignupParams, void> {
   final UserRepository _userRepository;
 
   SignUpUsecase(this._userRepository);
 
   @override
-  Future<Either<BaseError, User>> execute(
+  Future<Either<BaseError, void>> execute(
       {required SignupParams params}) async {
     return Future.value(
       (await _userRepository.signUpWithEmail(params.signUpRequest))

@@ -10,9 +10,10 @@ class NetworkAdapter implements NetworkPort {
   NetworkAdapter(this.apiService);
 
   @override
-  Future<Either<NetworkError, User>> loginWithEmail() {
-    // TODO: implement loginWithEmail
-    throw UnimplementedError();
+  Future<Either<NetworkError, User>> loginWithEmail(
+      {required LoginRequest loginRequest}) async {
+    var response = await safeApiCall(apiService.login(loginRequest));
+    return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
   }
 
   @override

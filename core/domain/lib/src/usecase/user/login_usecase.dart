@@ -5,7 +5,7 @@ import '../../repository/user_repository.dart';
 import '../base/base_usecase.dart';
 import '../base/params.dart';
 
-class LoginUseCase extends BaseUseCase<BaseError, LoginUseCaseParams, User> {
+class LoginUseCase extends BaseUseCase<BaseError, LoginUseCaseParams, void> {
   final UserRepository _userRepository;
 
   LoginUseCase(
@@ -13,7 +13,7 @@ class LoginUseCase extends BaseUseCase<BaseError, LoginUseCaseParams, User> {
   );
 
   @override
-  Future<Either<BaseError, User>> execute(
+  Future<Either<BaseError, void>> execute(
       {required LoginUseCaseParams params}) async {
     return Future.value(
       (await _userRepository.loginWithEmail(params.loginRequest))

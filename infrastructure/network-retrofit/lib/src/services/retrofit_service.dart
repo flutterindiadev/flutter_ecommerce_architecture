@@ -14,4 +14,9 @@ abstract class RetrofitService {
   Future<HttpResponse<UserResponseEntity>> signup(
     @Body() SignUpRequest signUpRequest,
   );
+
+  @POST("login")
+  Future<HttpResponse<UserResponseEntity>> login(
+    @Body() LoginRequest loginRequest,
+  );
 }

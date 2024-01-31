@@ -19,8 +19,11 @@ class UserResponseEntity
 
   @override
   UserResponseEntity restore(User data) {
-    // TODO: implement restore
-    throw UnimplementedError();
+    return UserResponseEntity(UserEntity(
+        id: data.id,
+        email: data.email,
+        mobile: data.mobile,
+        token: data.token));
   }
 
   @override
