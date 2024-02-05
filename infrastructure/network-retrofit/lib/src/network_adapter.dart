@@ -24,4 +24,10 @@ class NetworkAdapter implements NetworkPort {
     );
     return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
   }
+
+  @override
+  Future<Either<NetworkError, void>> forgotPassword() async {
+    var response = await safeApiCall(apiService.forgotPassword());
+    return response.fold((l) => Left(l), (r) => Right(r));
+  }
 }

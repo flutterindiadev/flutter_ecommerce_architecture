@@ -7,4 +7,6 @@ abstract class UserRepository {
       SignUpRequest signUpRequest);
 
   Future<Either<DatabaseError, void>> saveUser(User user);
+
+  Future<Either<NetworkError, void>> forgotPassword();
 }

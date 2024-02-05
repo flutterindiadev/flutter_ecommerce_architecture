@@ -19,4 +19,7 @@ abstract class RetrofitService {
   Future<HttpResponse<UserResponseEntity>> login(
     @Body() LoginRequest loginRequest,
   );
+
+  @POST("login")
+  Future<HttpResponse<UserResponseEntity>> forgotPassword();
 }

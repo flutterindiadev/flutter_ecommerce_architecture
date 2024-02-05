@@ -24,4 +24,9 @@ class UserRepositoryImpl extends UserRepository {
       SignUpRequest signUpRequest) {
     return networkPort.signUpWithEmail(signUpRequest: signUpRequest);
   }
+
+  @override
+  Future<Either<NetworkError, void>> forgotPassword() {
+    return networkPort.forgotPassword();
+  }
 }

@@ -5,4 +5,6 @@ abstract class NetworkPort {
       {required LoginRequest loginRequest});
   Future<Either<NetworkError, User>> signUpWithEmail(
       {required SignUpRequest signUpRequest});
+
+  Future<Either<NetworkError, void>> forgotPassword();
 }
