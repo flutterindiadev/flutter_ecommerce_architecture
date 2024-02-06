@@ -16,9 +16,12 @@ class ProductEntity
   final String category;
   @JsonKey(name: 'price')
   final double price;
+  @JsonKey(name: 'currency')
+  final Currency currency;
 
   ProductEntity(
-      {required this.name,
+      {required this.currency,
+      required this.name,
       required this.description,
       required this.imageUrl,
       required this.category,
@@ -27,6 +30,7 @@ class ProductEntity
   @override
   ProductEntity restore(data) {
     return ProductEntity(
+        currency: data.currency,
         name: data.name,
         description: data.description,
         imageUrl: data.imageUrl,
@@ -41,6 +45,7 @@ class ProductEntity
         description: description,
         imageUrl: imageUrl,
         price: price,
-        category: category);
+        category: category,
+        currency: currency);
   }
 }
