@@ -10,15 +10,23 @@ class UserRepositoryImpl extends UserRepository {
   UserRepositoryImpl(this.databaseProvider, this.networkPort);
 
   @override
-  Future<Either<NetworkError, User>> loginWithEmail(
-      {required String email, required String password}) {
-    // TODO: implement loginWithEmail
-    throw UnimplementedError();
+  Future<Either<NetworkError, User>> loginWithEmail(LoginRequest loginRequest) {
+    return networkPort.loginWithEmail(loginRequest: loginRequest);
   }
 
   @override
-  Future<Either<DatabaseError, User>> saveUser(User user) {
-    // TODO: implement saveUser
-    throw UnimplementedError();
+  Future<Either<DatabaseError, void>> saveUser(User user) {
+    return databaseProvider.saveUser(user);
+  }
+
+  @override
+  Future<Either<NetworkError, User>> signUpWithEmail(
+      SignUpRequest signUpRequest) {
+    return networkPort.signUpWithEmail(signUpRequest: signUpRequest);
+  }
+
+  @override
+  Future<Either<NetworkError, void>> forgotPassword() {
+    return networkPort.forgotPassword();
   }
 }

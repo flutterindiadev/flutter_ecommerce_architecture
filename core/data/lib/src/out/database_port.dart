@@ -1,5 +1,5 @@
+import 'package:domain/domain.dart';
+
 abstract class DatabasePort {
-  void saveUser();
-  void fetchPosts();
-  void reload();
+  Future<Either<DatabaseError, void>> saveUser(User user);
 }

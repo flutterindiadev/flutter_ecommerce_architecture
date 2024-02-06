@@ -1,4 +1,5 @@
 import 'package:floor/floor.dart';
+
 import '../constants/database_tables.dart';
 import '../model/user_entity.dart';
 import 'base/base_dao.dart';
@@ -13,4 +14,7 @@ abstract class UserDao extends BaseDao<UserDBEntity> {
 
   @Query("SELECT * FROM ${Table.user}")
   Future<List<UserDBEntity>> getUsersList();
+
+  @insert
+  Future<void> insertUser(UserDBEntity user);
 }
