@@ -17,4 +17,13 @@ class AppPersistenceAdapter implements DatabasePort {
 
     return response.fold((l) => Left(l), (r) => right(r));
   }
+
+  @override
+  Future<Either<DatabaseError, void>> saveProducts(
+      List<Product> products) async {
+    final response =
+        await safeDbCall(appDatabase.userDao.saveProducts(products));
+
+    return response.fold((l) => Left(l), (r) => Right(r));
+  }
 }

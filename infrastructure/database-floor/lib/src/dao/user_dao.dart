@@ -1,3 +1,4 @@
+import 'package:data/data.dart';
 import 'package:floor/floor.dart';
 
 import '../constants/database_tables.dart';
@@ -17,4 +18,7 @@ abstract class UserDao extends BaseDao<UserDBEntity> {
 
   @insert
   Future<void> insertUser(UserDBEntity user);
+
+  @insert
+  Future<void> saveProducts(List<Product> products);
 }

@@ -19,9 +19,9 @@ class UserEntity implements BaseLayerDataTransformer<UserEntity, User> {
       required this.token});
 
   @override
-  restore(data) {
-    // TODO: implement restore
-    throw UnimplementedError();
+  UserEntity restore(data) {
+    return UserEntity(
+        id: data.id, email: data.email, mobile: data.mobile, token: data.token);
   }
 
   @override
