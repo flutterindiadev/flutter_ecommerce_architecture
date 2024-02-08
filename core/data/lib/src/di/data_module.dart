@@ -1,5 +1,5 @@
 import 'package:data/data.dart';
-import 'package:data/src/repository/user_repository.dart';
+import 'package:data/src/repository/user_repository_impl.dart';
 import 'package:domain/domain.dart';
 import 'package:injectable/injectable.dart';
 

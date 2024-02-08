@@ -1,7 +1,7 @@
 import 'package:domain/domain.dart';
 
-abstract class DatabasePort {
-  Future<Either<DatabaseError, void>> saveUser(User user);
+abstract class ProductRepository {
+  Future<Either<NetworkError, List<Product>>> getProducts();
 
   Future<Either<DatabaseError, void>> saveProducts(List<Product> products);
 }

@@ -7,4 +7,6 @@ abstract class NetworkPort {
       {required SignUpRequest signUpRequest});
 
   Future<Either<NetworkError, void>> forgotPassword();
+
+  Future<Either<NetworkError, List<Product>>> getProducts();
 }

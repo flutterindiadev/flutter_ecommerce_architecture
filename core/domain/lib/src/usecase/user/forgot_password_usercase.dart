@@ -7,7 +7,7 @@ class ForgotPasswordUsecase extends BaseUseCase {
   ForgotPasswordUsecase(this._userRepository);
 
   @override
-  Future<Either<BaseError, dynamic>> execute({required Params params}) {
-    return _userRepository.forgotPassword();
+  Future<Either<BaseError, dynamic>> execute({required Params params}) async {
+    return await _userRepository.forgotPassword();
   }
 }
