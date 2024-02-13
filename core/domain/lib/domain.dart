@@ -10,6 +10,7 @@ export 'src/di/domain_dependency_configurator.dart';
 export 'src/repository/product_repository.dart';
 //repository contracts
 export 'src/repository/user_repository.dart';
+export 'src/repository/cartRepository.dart';
 //use-cases
 export 'src/usecase/base/params.dart';
 export 'src/usecase/products/get_products_usecase.dart';

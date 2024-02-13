@@ -9,10 +9,7 @@ class GetProducts extends BaseUseCase {
   @override
   Future<Either<BaseError, List<Product>>> execute(
       {required Params params}) async {
-    return Future.value((await _productRepository.getProducts())
-        .fold((l) => Left(l), (result) async {
-      await _productRepository.saveProducts(result);
-      return Right(result);
-    }));
+    return  _productRepository.getProducts()
+    ;
   }
 }

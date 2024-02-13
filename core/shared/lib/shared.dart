@@ -20,3 +20,4 @@ export 'src/shared_base.dart';
 export 'src/utils/mapper/base_layer_transformer.dart';
 //utils
 export 'src/utils/validator.dart';
+export 'src/model/cart/cart.dart';

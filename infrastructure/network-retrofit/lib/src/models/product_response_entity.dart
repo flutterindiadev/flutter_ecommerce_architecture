@@ -27,7 +27,7 @@ class ProductResponseEntity
             imageUrl: productEntity[index].imageUrl,
             price: productEntity[index].price,
             category: productEntity[index].category,
-            currency: productEntity[index].currency));
+            currencyId: productEntity[index].currencyId));
   }
 
   @override
@@ -40,7 +40,7 @@ class ProductResponseEntity
             imageUrl: data[index].imageUrl,
             category: data[index].category,
             price: data[index].price,
-            currency: data[index].currency));
+            currencyId: data[index].currencyId));
 
     return ProductResponseEntity(productEntityList);
   }

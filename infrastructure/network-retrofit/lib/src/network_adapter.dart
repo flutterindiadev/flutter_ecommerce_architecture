@@ -36,4 +36,16 @@ class NetworkAdapter implements NetworkPort {
     var response = await safeApiCall(apiService.getProducts());
     return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
   }
+
+  @override
+  Future<Either<NetworkError, Cart>> addtoCart() {
+    // TODO: implement addtoCart
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Either<NetworkError, Cart>> getCartList() {
+    // TODO: implement getCartList
+    throw UnimplementedError();
+  }
 }
