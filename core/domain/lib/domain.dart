@@ -15,3 +15,5 @@ export 'src/repository/cartRepository.dart';
 export 'src/usecase/base/params.dart';
 export 'src/usecase/products/get_products_usecase.dart';
 export 'src/usecase/user/login_usecase.dart';
+//useCaseParams
+export 'src/usecase/cart/get_cart_usecase.dart';

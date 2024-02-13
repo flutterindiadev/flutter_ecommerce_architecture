@@ -10,14 +10,14 @@ class CartRepositoryImpl extends CartRepository {
   CartRepositoryImpl(this.networkPort);
 
   @override
-  Future<Either<NetworkError, Cart>> addToCart (CartProductAddUseCaseParams params) async{
+  Future<Either<NetworkError, Cart>> addToCart (AddtoCartRequest addtoCartRequest) async{
 
-    return  await networkPort.addtoCart();
+    return  await networkPort.addtoCart(addtoCartRequest);
   }
 
   @override
-  Future<Either<NetworkError, Cart>> getCart() async{
-   return await networkPort.getCartList();
+  Future<Either<NetworkError, Cart>> getCart(GetCartItemsUseCaseParams params) async{
+   return await networkPort.getCart(params.userId);
   }
 
 

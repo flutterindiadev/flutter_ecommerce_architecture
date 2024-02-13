@@ -1,5 +1,6 @@
 import 'package:data/data.dart';
 import 'package:dio/dio.dart';
+import 'package:network_retrofit/src/models/cart_entity/cart_Response_Entity.dart';
 import 'package:network_retrofit/src/models/product_response_entity.dart';
 import 'package:network_retrofit/src/models/user_response_entity.dart';
 import 'package:retrofit/retrofit.dart';
@@ -26,4 +27,12 @@ abstract class RetrofitService {
 
   @GET("getproducts")
   Future<HttpResponse<ProductResponseEntity>> getProducts();
+
+  @GET("getCart")
+  Future<HttpResponse<CartResponseEntity>>getCart(int userId);
+
+  @POST("AddtoCart")
+  Future<HttpResponse<CartResponseEntity>> addtoCart(
+  @Body() AddtoCartRequest addCartRequest,
+      );
 }
