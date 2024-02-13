@@ -1,5 +1,6 @@
 import 'package:data/data.dart';
 import 'package:dio/dio.dart';
+import 'package:network_retrofit/src/models/product_category_response_entity.dart';
 import 'package:network_retrofit/src/models/product_response_entity.dart';
 import 'package:network_retrofit/src/models/products_response_entity.dart';
 import 'package:network_retrofit/src/models/user_response_entity.dart';
@@ -28,6 +29,10 @@ abstract class RetrofitService {
   @GET("getproducts")
   Future<HttpResponse<ProductsResponseEntity>> getProducts();
 
-  @GET("getproductDetail")
-  Future<HttpResponse<ProductResponseEntity>> getProductDetail(int productId);
+  @POST("getproductDetail")
+  Future<HttpResponse<ProductResponseEntity>> getProductDetail(
+      @Body() int productId);
+
+  @GET("getproductCategory")
+  Future<HttpResponse<ProductCategoryResponseEntity>> getProductCategory();
 }

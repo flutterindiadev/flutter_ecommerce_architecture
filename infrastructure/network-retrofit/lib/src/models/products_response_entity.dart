@@ -27,7 +27,7 @@ class ProductsResponseEntity
             imageUrl: productsEntity[index].imageUrl,
             price: productsEntity[index].price,
             category: productsEntity[index].category,
-            currency: productsEntity[index].currency,
+            currencyid: productsEntity[index].currencyid,
             id: productsEntity[index].id));
   }
 
@@ -41,7 +41,7 @@ class ProductsResponseEntity
             imageUrl: data[index].imageUrl,
             category: data[index].category,
             price: data[index].price,
-            currency: data[index].currency,
+            currencyid: data[index].currencyid,
             id: data[index].id));
 
     return ProductsResponseEntity(productEntityList);

@@ -1,5 +1,3 @@
-import 'package:shared/src/model/product/currency.dart';
-
 class Product {
   int id;
   String name;
@@ -8,7 +6,7 @@ class Product {
   double price;
   String category;
   double? discount;
-  Currency currency;
+  String currencyid;
   Product(
       {required this.id,
       required this.name,
@@ -17,5 +15,5 @@ class Product {
       required this.price,
       required this.category,
       this.discount,
-      required this.currency});
+      required this.currencyid});
 }
