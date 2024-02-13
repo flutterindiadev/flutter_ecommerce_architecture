@@ -14,8 +14,7 @@ class ProductRepositoryImpl extends ProductRepository {
   }
 
   @override
-  Future<Either<DatabaseError, void>> saveProducts(
-      List<Product> products) async {
-    return await databaseProvider.saveProducts(products);
+  Future<Either<NetworkError, Product>> getProductDetail(int productId) async {
+    return await networkPort.getProductDetail(productId);
   }
 }

@@ -1,6 +1,7 @@
 import 'package:shared/src/model/product/currency.dart';
 
 class Product {
+  int id;
   String name;
   String description;
   String imageUrl;
@@ -9,7 +10,8 @@ class Product {
   double? discount;
   Currency currency;
   Product(
-      {required this.name,
+      {required this.id,
+      required this.name,
       required this.description,
       required this.imageUrl,
       required this.price,

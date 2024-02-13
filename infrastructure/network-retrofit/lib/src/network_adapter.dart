@@ -36,4 +36,10 @@ class NetworkAdapter implements NetworkPort {
     var response = await safeApiCall(apiService.getProducts());
     return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
   }
+
+  @override
+  Future<Either<NetworkError, Product>> getProductDetail(int productId) async {
+    var response = await safeApiCall(apiService.getProductDetail(productId));
+    return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
+  }
 }

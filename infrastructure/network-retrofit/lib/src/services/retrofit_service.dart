@@ -1,6 +1,7 @@
 import 'package:data/data.dart';
 import 'package:dio/dio.dart';
 import 'package:network_retrofit/src/models/product_response_entity.dart';
+import 'package:network_retrofit/src/models/products_response_entity.dart';
 import 'package:network_retrofit/src/models/user_response_entity.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -25,5 +26,8 @@ abstract class RetrofitService {
   Future<HttpResponse> forgotPassword();
 
   @GET("getproducts")
-  Future<HttpResponse<ProductResponseEntity>> getProducts();
+  Future<HttpResponse<ProductsResponseEntity>> getProducts();
+
+  @GET("getproductDetail")
+  Future<HttpResponse<ProductResponseEntity>> getProductDetail(int productId);
 }

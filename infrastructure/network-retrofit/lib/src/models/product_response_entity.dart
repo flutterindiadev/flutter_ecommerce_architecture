@@ -6,9 +6,9 @@ part 'product_response_entity.g.dart';
 
 @JsonSerializable()
 class ProductResponseEntity
-    implements BaseLayerDataTransformer<ProductResponseEntity, List<Product>> {
+    implements BaseLayerDataTransformer<ProductResponseEntity, Product> {
   @JsonKey(name: 'data')
-  final List<ProductEntity> productEntity;
+  final ProductEntity productEntity;
 
   ProductResponseEntity(this.productEntity);
 
@@ -18,30 +18,26 @@ class ProductResponseEntity
   Map<String, dynamic> toJson() => _$ProductResponseEntityToJson(this);
 
   @override
-  List<Product> transform() {
-    return List.generate(
-        productEntity.length,
-        (index) => Product(
-            name: productEntity[index].name,
-            description: productEntity[index].description,
-            imageUrl: productEntity[index].imageUrl,
-            price: productEntity[index].price,
-            category: productEntity[index].category,
-            currency: productEntity[index].currency));
+  Product transform() {
+    return Product(
+        name: productEntity.name,
+        description: productEntity.description,
+        imageUrl: productEntity.imageUrl,
+        price: productEntity.price,
+        category: productEntity.category,
+        currency: productEntity.currency,
+        id: productEntity.id);
   }
 
   @override
-  ProductResponseEntity restore(List<Product> data) {
-    var productEntityList = List.generate(
-        data.length,
-        (index) => ProductEntity(
-            name: data[index].name,
-            description: data[index].description,
-            imageUrl: data[index].imageUrl,
-            category: data[index].category,
-            price: data[index].price,
-            currency: data[index].currency));
-
-    return ProductResponseEntity(productEntityList);
+  ProductResponseEntity restore(Product data) {
+    return ProductResponseEntity(ProductEntity(
+        id: data.id,
+        currency: data.currency,
+        name: data.name,
+        description: data.description,
+        imageUrl: data.imageUrl,
+        category: data.category,
+        price: data.price));
   }
 }
