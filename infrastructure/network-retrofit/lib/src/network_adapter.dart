@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:data/data.dart';
 import 'package:network_retrofit/src/utils/safe_api_call.dart';
-import 'package:domain/src/usecase/cart/get_cart_usecase.dart';
+
 import 'services/retrofit_service.dart';
 
 class NetworkAdapter implements NetworkPort {
@@ -51,11 +51,14 @@ class NetworkAdapter implements NetworkPort {
 
   }
 
+  @override
+  Future<Either<NetworkError, Cart>> removeFromCart({required RemovefromCartRequest removefromCartRequest}) async {
+    var response = await safeApiCall(apiService.removeFromCart(removefromCartRequest));
+    return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
+
+  }
 
 
-  // @override
-  // Future<Either<NetworkError, Cart>> addtoCart() {
-  //   // TODO: implement addtoCart
-  //   throw UnimplementedError();
-  // }
+
+
 }

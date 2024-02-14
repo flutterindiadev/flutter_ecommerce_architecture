@@ -1,6 +1,7 @@
 
 import 'package:domain/domain.dart';
 import 'package:domain/src/usecase/cart/add_to_cart_usecase.dart';
+import 'package:domain/src/usecase/cart/remove_from_cart_usecase.dart';
 
 import '../../data.dart';
 
@@ -19,6 +20,14 @@ class CartRepositoryImpl extends CartRepository {
   Future<Either<NetworkError, Cart>> getCart(GetCartItemsUseCaseParams params) async{
    return await networkPort.getCart(params.userId);
   }
+
+  @override
+  Future<Either<NetworkError, Cart>> removeFromCart(RemovefromCartRequest removefromCartRequest) async {
+    return await networkPort.removeFromCart(removefromCartRequest: removefromCartRequest);
+  }
+
+
+
 
 
 

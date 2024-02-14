@@ -35,4 +35,9 @@ abstract class RetrofitService {
   Future<HttpResponse<CartResponseEntity>> addtoCart(
   @Body() AddtoCartRequest addCartRequest,
       );
+
+  @POST("RemoveFromCart")
+  Future<HttpResponse<CartResponseEntity>> removeFromCart(
+      @Body() RemovefromCartRequest removefromCartRequest,
+      );
 }
