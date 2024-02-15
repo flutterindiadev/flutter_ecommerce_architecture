@@ -5,6 +5,8 @@ import 'package:network_retrofit/src/models/product_response_entity.dart';
 import 'package:network_retrofit/src/models/user_response_entity.dart';
 import 'package:retrofit/retrofit.dart';
 
+import '../models/logout_entity/logout_response_entity.dart';
+
 part 'retrofit_service.g.dart';
 
 @RestApi()
@@ -40,4 +42,9 @@ abstract class RetrofitService {
   Future<HttpResponse<CartResponseEntity>> removeFromCart(
       @Body() RemovefromCartRequest removefromCartRequest,
       );
+  @POST("logout")
+  Future<HttpResponse<LogoutResponseEntity>> logout(
+      @Body() LogoutRequest logoutRequest,
+      );
+
 }

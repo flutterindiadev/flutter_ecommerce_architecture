@@ -8,6 +8,7 @@ part 'cart_Response_Entity.g.dart';
 @JsonSerializable()
 class CartResponseEntity
     implements BaseLayerDataTransformer<CartResponseEntity, Cart> {
+  @JsonKey(name: 'data')
   CartEntity cartentity;
   CartResponseEntity(this.cartentity);
   @override

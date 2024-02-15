@@ -56,4 +56,15 @@ class NetworkAdapter implements NetworkPort {
     return response.fold((l) => Left(l), (r) => Right(r.data.transform(),),);
 
   }
+
+  @override
+  Future<Either<NetworkError, Logout>> logout({required LogoutRequest logoutRequest}) async{
+    var response = await safeApiCall(apiService.logout(logoutRequest));
+    return response.fold((l) => Left(l), (r) => Right(r.data.transform(),),);
+
+  }
+
+
+
+
 }
