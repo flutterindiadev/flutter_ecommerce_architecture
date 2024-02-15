@@ -14,7 +14,6 @@ class CartEntity implements BaseLayerDataTransformer<CartEntity, Cart>{
  final  List<ProductEntity> productlist;
   @JsonKey(name: 'productCount')
  final  int productCount ;
-
   @JsonKey(name: 'cartTotal')
 final  double cartTotal;
 
@@ -46,7 +45,6 @@ final  double cartTotal;
 
    return Cart(productlist: prodlist,
        productCount: productCount,
-
        cartTotal: cartTotal, cartId: cartId);
   }
 }

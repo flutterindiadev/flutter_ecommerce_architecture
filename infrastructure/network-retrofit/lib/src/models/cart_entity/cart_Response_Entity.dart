@@ -13,22 +13,19 @@ class CartResponseEntity
   CartResponseEntity(this.cartentity);
   @override
   CartResponseEntity restore(Cart data) {
-    return CartResponseEntity(CartEntity(productlist: List.generate(
-      data.productCount,
-          (index) =>ProductEntity(name: data.productlist[index].name, description: data.productlist[index].description,
-              imageUrl: data.productlist[index].imageUrl, price: data.productlist[index].price,
-              category: data.productlist[index].category, currencyId: data.productlist[index].currencyId),),
-        productCount: data.productCount, cartTotal: data.cartTotal, cartId: data.cartId,));
+    return CartResponseEntity(CartEntity(cartId: data.cartId, cartTotal: data.cartTotal,
+        productCount: data.productCount, productlist: data.productlist.map((e) => ProductEntity(name: e.name, description: e.description,
+        imageUrl: e.imageUrl, price: e.price, category: e.category, currencyId: e.currencyId)).toList()));
   }
 
   @override
   Cart transform() {
-    return Cart(productlist: List.generate(
-        cartentity.productCount, (index) => Product(
-        name: cartentity.productlist[index].name, description: cartentity.productlist[index].description,
-        imageUrl: cartentity.productlist[index].imageUrl,
-        price: cartentity.productlist[index].price, category: cartentity.productlist[index].category,
-        currencyId: cartentity.productlist[index].currencyId)),
+
+    return Cart(productlist: cartentity.productlist.map((e) =>Product(
+        name: e.name, description: e.description,
+        imageUrl: e.imageUrl,
+        price: e.price, category: e.category,
+        currencyId: e.currencyId)).toList(),
         productCount: cartentity.productCount,
         cartTotal: cartentity.cartTotal, cartId: cartentity.cartId);
   }
