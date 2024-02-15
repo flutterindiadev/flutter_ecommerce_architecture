@@ -15,7 +15,7 @@ class ProductRepositoryImpl extends ProductRepository {
 
   @override
   Future<Either<NetworkError, Product>> getProductDetail(int productId) async {
-    return await networkPort.getProductDetail(productId);
+    return await networkPort.getProductDetail(productId: productId);
   }
 
   @override

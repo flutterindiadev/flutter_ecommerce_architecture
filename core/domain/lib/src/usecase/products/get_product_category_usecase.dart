@@ -20,7 +20,6 @@ class GetProductCategoryUsecase extends BaseUseCase<BaseError,
 class GetProductCategoryUsecaseParams extends Params {
   @override
   Either<AppError, bool> verify() {
-    // TODO: implement verify
-    throw UnimplementedError();
+    return Right(true);
   }
 }

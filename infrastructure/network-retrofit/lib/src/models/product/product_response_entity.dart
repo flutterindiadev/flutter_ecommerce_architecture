@@ -1,6 +1,6 @@
 import 'package:data/data.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:network_retrofit/src/models/product_entity.dart';
+import 'package:network_retrofit/src/models/product/product_entity.dart';
 
 part 'product_response_entity.g.dart';
 

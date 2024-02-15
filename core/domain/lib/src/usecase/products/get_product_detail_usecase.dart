@@ -22,7 +22,6 @@ class GetProductDetailUsecaseParams extends Params {
   GetProductDetailUsecaseParams(this.productId);
   @override
   Either<AppError, bool> verify() {
-    // TODO: implement verify
-    throw UnimplementedError();
+    return Right(true);
   }
 }
