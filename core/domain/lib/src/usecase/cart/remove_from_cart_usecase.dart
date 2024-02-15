@@ -5,23 +5,16 @@ import '../base/base_usecase.dart';
 class CartProductRemoveUseCase
     extends BaseUseCase<NetworkError, CartProductRemoveUseCaseParams,Cart> {
   final CartRepository cartRepository;
-
-  CartProductRemoveUseCase(this.cartRepository);
+  CartProductRemoveUseCase({required this.cartRepository});
 
   @override
-  Future<Either<NetworkError,Cart>> execute({required CartProductRemoveUseCaseParams params}) async{
-    return await cartRepository.removeFromCart(params.removeFromCartRequest);
-
+  Future<Either<NetworkError,Cart>> execute({required CartProductRemoveUseCaseParams params}){
+    return cartRepository.removeFromCart(removefromCartRequest :params.removeFromCartRequest);
   }
 }
-
-
-
-
 class CartProductRemoveUseCaseParams extends Params {
  RemovefromCartRequest removeFromCartRequest;
-
-  CartProductRemoveUseCaseParams(this.removeFromCartRequest);
+ CartProductRemoveUseCaseParams({required this.removeFromCartRequest});
 
   @override
   Either<AppError, bool> verify() {

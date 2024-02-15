@@ -9,11 +9,11 @@ class AddToCartUseCase
   final CartRepository cartRepository;
   AddtoCartRequest addtoCartRequest;
 
-  AddToCartUseCase(this.cartRepository,this.addtoCartRequest);
+  AddToCartUseCase({required this.cartRepository, required this.addtoCartRequest});
 
   @override
   Future<Either<NetworkError, void>> execute({required CartProductAddUseCaseParams  params}) {
-    return  cartRepository.addToCart(params.addtoCartRequest);
+    return  cartRepository.addToCart(addtoCartRequest:params.addtoCartRequest);
     
   }
 }
@@ -25,19 +25,6 @@ class CartProductAddUseCaseParams extends Params{
 
   @override
   Either<AppError, bool> verify() {
-    // TODO: implement verify
-    throw UnimplementedError();
+    return Right(true);
   }
-
-  // @override
-  // Future<Either<AppError, bool>> verify() async {
-  //   //TODO: verify fo error
-  //   //   if(cart.productCount == 0){
-  //   //     return Left(AppError(throwable: Exception(), error: ErrorInfo(message: "Your Bag is Light",
-  //   //         code: 404), type: ErrorType.cartIsEmpty));
-  //   //   }
-  //   //   else
-  //   //     return Right(true);
-  //   // }
-  // }
 }

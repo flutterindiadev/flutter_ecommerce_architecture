@@ -8,18 +8,18 @@ import '../product_entity.dart';
 
 @JsonSerializable()
 class CartEntity implements BaseLayerDataTransformer<CartEntity, Cart>{
-
+  @JsonKey(name: 'cartId')
+  final String cartId;
   @JsonKey(name: 'productlist')
  final  List<ProductEntity> productlist;
   @JsonKey(name: 'productCount')
  final  int productCount ;
-  @JsonKey(name: 'quantity')
-final  int quantity;
+
   @JsonKey(name: 'cartTotal')
 final  double cartTotal;
 
-  CartEntity({required this.productlist,
-    required  this.productCount,required this.quantity,
+  CartEntity( {required this.cartId, required this.productlist,
+    required  this.productCount,
     required this.cartTotal});
 
   @override
@@ -32,7 +32,7 @@ final  double cartTotal;
 
     return CartEntity(productlist: prodEntity,
         productCount: data.productCount,
-        quantity: data.quantity, cartTotal: data.cartTotal);
+        cartTotal: data.cartTotal, cartId: data.cartId,);
   }
 
   @override
@@ -43,10 +43,10 @@ final  double cartTotal;
             price:  productlist[index].price,
             category:  productlist[index].category,
             currencyId:  productlist[index].currencyId));
-    // TODO: implement transform
+
    return Cart(productlist: prodlist,
        productCount: productCount,
-       quantity: quantity,
-       cartTotal: cartTotal);
+
+       cartTotal: cartTotal, cartId: cartId);
   }
 }

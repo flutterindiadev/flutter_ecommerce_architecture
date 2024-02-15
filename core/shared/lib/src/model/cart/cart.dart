@@ -2,12 +2,13 @@
 import 'package:shared/shared.dart';
 
 class Cart{
+  String cartId;
   List<Product> productlist;
   int productCount ;
-  int quantity;
+
   double cartTotal;
 
-  Cart({required this.productlist,
-    required  this.productCount,required this.quantity,
+  Cart({required this.cartId,required this.productlist,
+    required  this.productCount,
     required this.cartTotal});
 }

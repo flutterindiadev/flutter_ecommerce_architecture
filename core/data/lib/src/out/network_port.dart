@@ -2,10 +2,9 @@ import 'package:domain/domain.dart';
 
 abstract class NetworkPort {
   Future<Either<NetworkError, Cart>> addtoCart(
-      AddtoCartRequest addtoCartRequest
-      );
+      {required AddtoCartRequest addtoCartRequest});
 
-  Future<Either<NetworkError, Cart>> getCart(int userId);
+  Future<Either<NetworkError, Cart>> getCart({required int userId});
   Future<Either<NetworkError, User>> loginWithEmail(
       {required LoginRequest loginRequest});
   Future<Either<NetworkError, User>> signUpWithEmail(
