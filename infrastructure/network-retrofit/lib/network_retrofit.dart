@@ -5,5 +5,3 @@ library network_retrofit;
 
 export 'src/di/network_dependency_configurator.dart';
 export 'src/network_retrofit_base.dart';
-
-

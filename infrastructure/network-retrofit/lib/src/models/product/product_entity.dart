@@ -20,11 +20,11 @@ class ProductEntity
   final double price;
   @JsonKey(name: 'currencyId')
   final String currencyId;
-  
+
   ProductEntity(
       {required this.id,
       required this.currencyId,
-        required this.name,
+      required this.name,
       required this.description,
       required this.imageUrl,
       required this.category,
@@ -45,12 +45,13 @@ class ProductEntity
   @override
   Product transform() {
     return Product(
-        name: name,
-        description: description,
-        imageUrl: imageUrl,
-        price: price,
-        category: category,
-        currencyId: currencyId, id: id, );
-
-         }
+      name: name,
+      description: description,
+      imageUrl: imageUrl,
+      price: price,
+      category: category,
+      currencyId: currencyId,
+      id: id,
+    );
+  }
 }

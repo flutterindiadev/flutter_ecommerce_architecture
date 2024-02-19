@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:network_retrofit/src/models/cart_entity/cart_Response_Entity.dart';
 import 'package:network_retrofit/src/models/address/address_entity.dart';
 import 'package:network_retrofit/src/models/address/addresses_response_entity.dart';
+import 'package:network_retrofit/src/models/changeCartAddress/change_cart_Address_entity.dart';
 import 'package:network_retrofit/src/models/product/product_category_response_entity.dart';
 import 'package:network_retrofit/src/models/product/product_response_entity.dart';
 import 'package:network_retrofit/src/models/product/products_response_entity.dart';
@@ -41,26 +42,26 @@ abstract class RetrofitService {
   Future<HttpResponse<ProductsResponseEntity>> getProduct();
 
   @GET("getCart")
-  Future<HttpResponse<CartResponseEntity>>getCart(int userId);
+  Future<HttpResponse<CartResponseEntity>> getCart(int userId);
 
   @POST("AddtoCart")
   Future<HttpResponse<CartResponseEntity>> addtoCart(
-  @Body() AddtoCartRequest addCartRequest,
-      );
+    @Body() AddtoCartRequest addCartRequest,
+  );
 
   @POST("RemoveFromCart")
   Future<HttpResponse<CartResponseEntity>> removeFromCart(
-      @Body() RemovefromCartRequest removefromCartRequest,
-      );
+    @Body() RemovefromCartRequest removefromCartRequest,
+  );
   @POST("logout")
   Future<HttpResponse<LogoutResponseEntity>> logout(
-      @Body() LogoutRequest logoutRequest,
-      );
+    @Body() LogoutRequest logoutRequest,
+  );
 
   @POST("checkout")
   Future<HttpResponse<OrderItemResponseEntity>> checkOutCart(
-      @Body() CheckoutRequest checkoutRequest,
-      );
+    @Body() CheckoutRequest checkoutRequest,
+  );
 
   @GET("getproducts")
   Future<HttpResponse<ProductsResponseEntity>> getProducts();
@@ -79,6 +80,10 @@ abstract class RetrofitService {
   @POST("changeAddress")
   Future<HttpResponse<AddressEntity>> changeAddress(@Body() Address address);
 
+  @POST("changeCartAddress")
+  Future<HttpResponse<ChangeCartAddressEntity>> changeCartAddress(
+      @Body() CartAddressChangeRequest cartAddressChangeRequest);
+
   @POST("deleteAddress")
   Future<HttpResponse<AddressesResponseEntity>> deleteAddress(
       @Body() String addressId);
@@ -91,5 +96,4 @@ abstract class RetrofitService {
 
   @GET("verifyotp")
   Future<HttpResponse<VerifyotpEntity>> verifyotp(@Body() int otp);
-
 }
