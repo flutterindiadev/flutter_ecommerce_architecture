@@ -64,6 +64,13 @@ class NetworkAdapter implements NetworkPort {
 
   }
 
+  @override
+  Future<Either<NetworkError, OrderItem>> checkOutCart({required CheckoutRequest checkoutRequest}) async{
+    var response = await safeApiCall(apiService.checkOutCart(checkoutRequest));
+    return response.fold((l) => Left(l), (r) => Right(r.data.transform()),);
+
+  }
+
 
 
 

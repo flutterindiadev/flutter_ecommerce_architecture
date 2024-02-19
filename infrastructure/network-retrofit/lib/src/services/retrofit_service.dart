@@ -6,6 +6,7 @@ import 'package:network_retrofit/src/models/user_response_entity.dart';
 import 'package:retrofit/retrofit.dart';
 
 import '../models/logout_entity/logout_response_entity.dart';
+import '../models/orderItem_entity/orderItem_Response_Entity.dart';
 
 part 'retrofit_service.g.dart';
 
@@ -47,4 +48,8 @@ abstract class RetrofitService {
       @Body() LogoutRequest logoutRequest,
       );
 
+  @POST("checkout")
+  Future<HttpResponse<OrderItemResponseEntity>> checkOutCart(
+      @Body() CheckoutRequest checkoutRequest,
+      );
 }

@@ -22,7 +22,8 @@ class LogoutResponseEntity
 
   @override
   Logout transform() {
-   return Logout(sessionId: logoutentity.sessionId);
+     return Logout(sessionId: logoutentity.sessionId);
+
   }
 
   @override
