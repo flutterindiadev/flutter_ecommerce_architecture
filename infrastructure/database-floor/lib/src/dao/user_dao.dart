@@ -17,4 +17,5 @@ abstract class UserDao extends BaseDao<UserDBEntity> {
 
   @insert
   Future<void> insertUser(UserDBEntity user);
+
 }

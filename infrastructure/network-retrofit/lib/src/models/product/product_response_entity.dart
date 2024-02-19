@@ -25,7 +25,7 @@ class ProductResponseEntity
         imageUrl: productEntity.imageUrl,
         price: productEntity.price,
         category: productEntity.category,
-        currencyid: productEntity.currencyid,
+        currencyId: productEntity.currencyId,
         id: productEntity.id);
   }
 
@@ -33,7 +33,7 @@ class ProductResponseEntity
   ProductResponseEntity restore(Product data) {
     return ProductResponseEntity(ProductEntity(
         id: data.id,
-        currencyid: data.currencyid,
+        currencyId: data.currencyId,
         name: data.name,
         description: data.description,
         imageUrl: data.imageUrl,

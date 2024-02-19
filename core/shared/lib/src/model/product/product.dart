@@ -6,7 +6,9 @@ class Product {
   double price;
   String category;
   double? discount;
-  String currencyid;
+
+  String currencyId;
+
   Product(
       {required this.id,
       required this.name,
@@ -15,5 +17,6 @@ class Product {
       required this.price,
       required this.category,
       this.discount,
-      required this.currencyid});
+        required this.currencyId});
+
 }

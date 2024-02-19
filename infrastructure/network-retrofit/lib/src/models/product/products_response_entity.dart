@@ -27,7 +27,7 @@ class ProductsResponseEntity
             imageUrl: e.imageUrl,
             price: e.price,
             category: e.category,
-            currencyid: e.currencyid))
+            currencyId: e.currencyId))
         .toList();
   }
 
@@ -36,7 +36,7 @@ class ProductsResponseEntity
     return ProductsResponseEntity(data
         .map((e) => ProductEntity(
             id: e.id,
-            currencyid: e.currencyid,
+            currencyId: e.currencyId,
             name: e.name,
             description: e.description,
             imageUrl: e.imageUrl,
