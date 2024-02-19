@@ -8,7 +8,6 @@ part 'logout_response_entity.g.dart';
 @JsonSerializable()
 class LogoutResponseEntity
     implements BaseLayerDataTransformer<LogoutResponseEntity, Logout> {
-
   @JsonKey(name: 'data')
   LogoutEntity logoutentity;
 
@@ -22,12 +21,12 @@ class LogoutResponseEntity
 
   @override
   Logout transform() {
-     return Logout(sessionId: logoutentity.sessionId!);
-
+    return Logout(sessionId: logoutentity.sessionId!);
   }
 
   @override
   LogoutResponseEntity restore(Logout data) {
-    return LogoutResponseEntity(logoutentity: LogoutEntity(sessionId: data.sessionId));
+    return LogoutResponseEntity(
+        logoutentity: LogoutEntity(sessionId: data.sessionId));
   }
 }

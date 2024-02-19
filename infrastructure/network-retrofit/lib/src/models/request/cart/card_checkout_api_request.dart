@@ -1,7 +1,9 @@
 import 'package:data/data.dart';
 import 'package:json_annotation/json_annotation.dart';
+
 @JsonSerializable()
-class CheckoutApiRequest implements BaseLayerDataTransformer<CheckoutApiRequest, CheckoutRequest>{
+class CheckoutApiRequest
+    implements BaseLayerDataTransformer<CheckoutApiRequest, CheckoutRequest> {
   @JsonKey(name: 'cartId')
   String cartId;
   @JsonKey(name: 'userId')
@@ -18,5 +20,4 @@ class CheckoutApiRequest implements BaseLayerDataTransformer<CheckoutApiRequest,
     // TODO: implement transform
     throw UnimplementedError();
   }
-
 }

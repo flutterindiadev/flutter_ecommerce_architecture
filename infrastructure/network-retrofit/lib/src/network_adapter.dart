@@ -33,48 +33,71 @@ class NetworkAdapter implements NetworkPort {
   @override
   Future<Either<NetworkError, List<Product>>> getProducts() async {
     var response = await safeApiCall(apiService.getProducts());
-    return response.fold((l) => Left(l), (r) => Right(r.data.transform(),),);
+    return response.fold(
+      (l) => Left(l),
+      (r) => Right(
+        r.data.transform(),
+      ),
+    );
   }
 
   @override
-
   Future<Either<NetworkError, Cart>> addtoCart(
       {required AddtoCartRequest addtoCartRequest}) async {
-
     var response = await safeApiCall(apiService.addtoCart(addtoCartRequest));
-    return response.fold((l) => left(l), (r) => Right(r.data.transform(),),);
+    return response.fold(
+      (l) => left(l),
+      (r) => Right(
+        r.data.transform(),
+      ),
+    );
   }
 
   @override
   Future<Either<NetworkError, Cart>> getCart({required int userId}) async {
     var response = await safeApiCall(apiService.getCart(userId));
-    return response.fold((l) => Left(l), (r) => Right(r.data.transform(),),);
-
-  }
-  @override
-  Future<Either<NetworkError, Cart>> removeFromCart({required RemovefromCartRequest removefromCartRequest}) async {
-    var response = await safeApiCall(apiService.removeFromCart(removefromCartRequest));
-    return response.fold((l) => Left(l), (r) => Right(r.data.transform(),),);
-
+    return response.fold(
+      (l) => Left(l),
+      (r) => Right(
+        r.data.transform(),
+      ),
+    );
   }
 
   @override
-  Future<Either<NetworkError, Logout>> logout({required LogoutRequest logoutRequest}) async{
+  Future<Either<NetworkError, Cart>> removeFromCart(
+      {required RemovefromCartRequest removefromCartRequest}) async {
+    var response =
+        await safeApiCall(apiService.removeFromCart(removefromCartRequest));
+    return response.fold(
+      (l) => Left(l),
+      (r) => Right(
+        r.data.transform(),
+      ),
+    );
+  }
+
+  @override
+  Future<Either<NetworkError, Logout>> logout(
+      {required LogoutRequest logoutRequest}) async {
     var response = await safeApiCall(apiService.logout(logoutRequest));
-    return response.fold((l) => Left(l), (r) => Right(r.data.transform(),),);
-
+    return response.fold(
+      (l) => Left(l),
+      (r) => Right(
+        r.data.transform(),
+      ),
+    );
   }
 
   @override
-  Future<Either<NetworkError, OrderItem>> checkOutCart({required CheckoutRequest checkoutRequest}) async{
+  Future<Either<NetworkError, OrderItem>> checkOutCart(
+      {required CheckoutRequest checkoutRequest}) async {
     var response = await safeApiCall(apiService.checkOutCart(checkoutRequest));
-    return response.fold((l) => Left(l), (r) => Right(r.data.transform()),);
-
+    return response.fold(
+      (l) => Left(l),
+      (r) => Right(r.data.transform()),
+    );
   }
-
-
-
-
 
   Future<Either<NetworkError, Product>> getProductDetail(
       {required int productId}) async {
@@ -136,12 +159,10 @@ class NetworkAdapter implements NetworkPort {
   }
 
   @override
-  Future<Either<NetworkError, OrderItem>> checkout({required CheckoutRequest checkoutRequest})async {
+  Future<Either<NetworkError, OrderItem>> checkout(
+      {required CheckoutRequest checkoutRequest}) async {
     var response = await safeApiCall(apiService.checkOutCart(checkoutRequest));
 
     return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
   }
-
-
-
 }

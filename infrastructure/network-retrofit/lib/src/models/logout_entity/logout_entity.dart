@@ -9,10 +9,5 @@ class LogoutEntity extends BaseLayerDataTransformer<LogoutEntity, Logout> {
   )
   final String? sessionId;
 
-
-  LogoutEntity({
-   required this.sessionId
-  });
-
-
+  LogoutEntity({required this.sessionId});
 }
