@@ -29,4 +29,9 @@ class UserRepositoryImpl extends UserRepository {
   Future<Either<NetworkError, void>> forgotPassword() {
     return networkPort.forgotPassword();
   }
+
+  @override
+  Future<Either<NetworkError, Logout>> logout(LogoutRequest logoutRequest) {
+   return networkPort.logout(logoutRequest: logoutRequest);
+  }
 }

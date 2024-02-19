@@ -11,7 +11,7 @@ class LogoutEntity extends BaseLayerDataTransformer<LogoutEntity, Logout> {
 
 
   LogoutEntity({
-    this.sessionId
+   required this.sessionId
   });
 
 

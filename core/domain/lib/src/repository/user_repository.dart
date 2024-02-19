@@ -9,4 +9,5 @@ abstract class UserRepository {
   Future<Either<DatabaseError, void>> saveUser(User user);
 
   Future<Either<NetworkError, void>> forgotPassword();
+  Future<Either<NetworkError, Logout>> logout(LogoutRequest logoutRequest);
 }

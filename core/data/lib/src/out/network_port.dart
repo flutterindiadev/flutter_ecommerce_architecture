@@ -15,6 +15,7 @@ abstract class NetworkPort {
   Future<Either<NetworkError, void>> forgotPassword();
 
   Future<Either<NetworkError, List<Product>>> getProducts();
+  Future<Either<NetworkError, Logout>> logout({required LogoutRequest logoutRequest});
 
   Future<Either<NetworkError,Cart>> removeFromCart(
   {required RemovefromCartRequest removefromCartRequest}
