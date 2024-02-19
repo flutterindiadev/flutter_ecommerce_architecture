@@ -5,7 +5,7 @@ class OrderItem{
   Product product;
   String paymentMode;
   String deliveryDate;
-  String address;
+  Address address;
 
   OrderItem(
       {required this.orderId,

@@ -2,7 +2,8 @@ import 'package:data/data.dart';
 
 import 'package:json_annotation/json_annotation.dart';
 
-import '../product_entity.dart';
+import '../product/product_entity.dart';
+
 
 
 
@@ -27,7 +28,7 @@ final  double cartTotal;
         ProductEntity(currencyId: data.productlist[index].currencyId,
             name: data.productlist[index].name, description: data.productlist[index].description,
             imageUrl: data.productlist[index].imageUrl,
-            category: data.productlist[index].category, price: data.productlist[index].price));
+            category: data.productlist[index].category, price: data.productlist[index].price, id: data.productlist[index].id));
 
     return CartEntity(productlist: prodEntity,
         productCount: data.productCount,
@@ -41,7 +42,9 @@ final  double cartTotal;
             imageUrl:  productlist[index].imageUrl,
             price:  productlist[index].price,
             category:  productlist[index].category,
-            currencyId:  productlist[index].currencyId));
+            currencyId:  productlist[index].currencyId, id:productlist[index].id,
+
+        ));
 
    return Cart(productlist: prodlist,
        productCount: productCount,

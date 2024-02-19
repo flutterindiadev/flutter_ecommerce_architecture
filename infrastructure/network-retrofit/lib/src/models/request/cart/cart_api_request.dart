@@ -1,7 +1,8 @@
 import 'package:data/data.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import '../../product_entity.dart';
+import '../../product/product_entity.dart';
+
 @JsonSerializable()
 class AddtoCartApiRequest
     implements BaseLayerDataTransformer<AddtoCartApiRequest, AddtoCartRequest> {

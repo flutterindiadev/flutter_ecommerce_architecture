@@ -23,4 +23,10 @@ class CartRepositoryImpl extends CartRepository {
   Future<Either<NetworkError, Cart>> removeFromCart({required RemovefromCartRequest removefromCartRequest}) async {
     return await networkPort.removeFromCart(removefromCartRequest: removefromCartRequest);
   }
+
+  @override
+  Future<Either<NetworkError, OrderItem>> checkout({required CheckoutRequest checkoutRequest}) async {
+   return await networkPort.checkout(checkoutRequest: checkoutRequest);
+  }
+
 }
