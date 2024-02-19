@@ -1,8 +1,8 @@
 import 'package:data/data.dart';
 import 'package:dio/dio.dart';
-import 'package:network_retrofit/src/models/cart_entity/cart_Response_Entity.dart';
 import 'package:network_retrofit/src/models/address/address_entity.dart';
 import 'package:network_retrofit/src/models/address/addresses_response_entity.dart';
+import 'package:network_retrofit/src/models/cart_entity/cart_Response_Entity.dart';
 import 'package:network_retrofit/src/models/product/product_category_response_entity.dart';
 import 'package:network_retrofit/src/models/product/product_response_entity.dart';
 import 'package:network_retrofit/src/models/product/products_response_entity.dart';
@@ -10,8 +10,11 @@ import 'package:network_retrofit/src/models/user/user_response_entity.dart';
 import 'package:network_retrofit/src/models/user/verifyotp_entity.dart';
 import 'package:network_retrofit/src/models/voucher/vouchers_response_entity.dart';
 import 'package:retrofit/retrofit.dart';
+
 import '../models/logout_entity/logout_response_entity.dart';
 import '../models/orderItem_entity/orderItem_Response_Entity.dart';
+import '../models/user/user_exists_entity.dart';
+
 part 'retrofit_service.g.dart';
 
 @RestApi()
@@ -35,32 +38,40 @@ abstract class RetrofitService {
   @POST("forgotpassword")
   Future<HttpResponse> forgotPassword();
 
+  @GET("forgotpassword")
+  Future<HttpResponse<UserExistsEntity>> userExists(
+      @Query('email') String email);
+
   //Product
 
   @GET("getproduct")
   Future<HttpResponse<ProductsResponseEntity>> getProduct();
 
   @GET("getCart")
-  Future<HttpResponse<CartResponseEntity>>getCart(int userId);
+  Future<HttpResponse<CartResponseEntity>> getCart(int userId);
 
   @POST("AddtoCart")
   Future<HttpResponse<CartResponseEntity>> addtoCart(
-  @Body() AddtoCartRequest addCartRequest,
-      );
+    @Body() AddtoCartRequest addCartRequest,
+  );
+
+  @GET("getproduct")
+  Future<HttpResponse<ProductsResponseEntity>> searchProducts(
+      @Query('productName') String productName);
 
   @POST("RemoveFromCart")
   Future<HttpResponse<CartResponseEntity>> removeFromCart(
-      @Body() RemovefromCartRequest removefromCartRequest,
-      );
+    @Body() RemovefromCartRequest removefromCartRequest,
+  );
   @POST("logout")
   Future<HttpResponse<LogoutResponseEntity>> logout(
-      @Body() LogoutRequest logoutRequest,
-      );
+    @Body() LogoutRequest logoutRequest,
+  );
 
   @POST("checkout")
   Future<HttpResponse<OrderItemResponseEntity>> checkOutCart(
-      @Body() CheckoutRequest checkoutRequest,
-      );
+    @Body() CheckoutRequest checkoutRequest,
+  );
 
   @GET("getproducts")
   Future<HttpResponse<ProductsResponseEntity>> getProducts();
@@ -91,5 +102,4 @@ abstract class RetrofitService {
 
   @GET("verifyotp")
   Future<HttpResponse<VerifyotpEntity>> verifyotp(@Body() int otp);
-
 }

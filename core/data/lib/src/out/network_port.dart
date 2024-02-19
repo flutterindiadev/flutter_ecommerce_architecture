@@ -1,7 +1,6 @@
 import 'package:domain/domain.dart';
 
 abstract class NetworkPort {
-
   Future<Either<NetworkError, Cart>> addtoCart(
       {required AddtoCartRequest addtoCartRequest});
 
@@ -9,34 +8,37 @@ abstract class NetworkPort {
 
   //onboarding
 
-
   Future<Either<NetworkError, User>> loginWithEmail(
       {required LoginRequest loginRequest});
   Future<Either<NetworkError, User>> signUpWithEmail(
-      {
-        required SignUpRequest signUpRequest}
-      );
+      {required SignUpRequest signUpRequest});
+
+  Future<Either<NetworkError, bool>> userExists({required String email});
 
   Future<Either<NetworkError, void>> forgotPassword();
 
   Future<Either<NetworkError, bool>> verifyotp({required int otp});
 
+  Future<Either<NetworkError, Logout>> logout(
+      {required LogoutRequest logoutRequest});
+
   //products
 
   Future<Either<NetworkError, List<Product>>> getProducts();
-  Future<Either<NetworkError, Logout>> logout({required LogoutRequest logoutRequest});
 
-  Future<Either<NetworkError,Cart>> removeFromCart(
-  {required RemovefromCartRequest removefromCartRequest}
-      );
+  Future<Either<NetworkError, Cart>> removeFromCart(
+      {required RemovefromCartRequest removefromCartRequest});
 
-  Future<Either<NetworkError,OrderItem>> checkout(
-      {required CheckoutRequest checkoutRequest}
-      );
+  Future<Either<NetworkError, OrderItem>> checkout(
+      {required CheckoutRequest checkoutRequest});
+
   Future<Either<NetworkError, Product>> getProductDetail(
       {required int productId});
 
   Future<Either<NetworkError, List<ProductCategory>>> getProductCategory();
+
+  Future<Either<NetworkError, List<Product>>> searchProducts(
+      {required String productName});
 
   //Address
 

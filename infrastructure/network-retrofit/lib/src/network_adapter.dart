@@ -99,6 +99,7 @@ class NetworkAdapter implements NetworkPort {
     );
   }
 
+  @override
   Future<Either<NetworkError, Product>> getProductDetail(
       {required int productId}) async {
     var response = await safeApiCall(apiService.getProductDetail(productId));
@@ -162,6 +163,21 @@ class NetworkAdapter implements NetworkPort {
   Future<Either<NetworkError, OrderItem>> checkout(
       {required CheckoutRequest checkoutRequest}) async {
     var response = await safeApiCall(apiService.checkOutCart(checkoutRequest));
+
+    return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
+  }
+
+  @override
+  Future<Either<NetworkError, bool>> userExists({required String email}) async {
+    var response = await safeApiCall(apiService.userExists(email));
+
+    return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
+  }
+
+  @override
+  Future<Either<NetworkError, List<Product>>> searchProducts(
+      {required String productName}) async {
+    var response = await safeApiCall(apiService.searchProducts(productName));
 
     return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
   }
