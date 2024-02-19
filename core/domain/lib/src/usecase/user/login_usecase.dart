@@ -16,7 +16,8 @@ class LoginUseCase extends BaseUseCase<BaseError, LoginUseCaseParams, void> {
   Future<Either<BaseError, void>> execute(
       {required LoginUseCaseParams params}) async {
     return Future.value(
-      (await _userRepository.loginWithEmail(params.loginRequest))
+      (await _userRepository.loginWithEmail(LoginRequest(
+              emailOrPhone: params.emailOrPhone, password: params.password)))
           .fold((l) => Left(l), (result) async {
         return _userRepository.saveUser(result);
       }),
@@ -25,15 +26,17 @@ class LoginUseCase extends BaseUseCase<BaseError, LoginUseCaseParams, void> {
 }
 
 class LoginUseCaseParams extends Params {
-  final LoginRequest loginRequest;
+  final String emailOrPhone;
+  final String password;
 
   LoginUseCaseParams({
-    required this.loginRequest,
+    required this.emailOrPhone,
+    required this.password,
   });
 
   @override
   Either<AppError, bool> verify() {
-    if (Validator.isEmpty(loginRequest.emailOrPhone)) {
+    if (Validator.isEmpty(emailOrPhone)) {
       return Left(
         AppError(
           type: ErrorType.uiEmptyEmail,
@@ -41,7 +44,7 @@ class LoginUseCaseParams extends Params {
           error: ErrorInfo(message: ''),
         ),
       );
-    } else if (!Validator.validateEmail(loginRequest.emailOrPhone)) {
+    } else if (!Validator.validateEmail(emailOrPhone)) {
       return Left(
         AppError(
           type: ErrorType.uiInvalidEmail,
@@ -49,7 +52,7 @@ class LoginUseCaseParams extends Params {
           error: ErrorInfo(message: ''),
         ),
       );
-    } else if (Validator.isEmpty(loginRequest.password)) {
+    } else if (Validator.isEmpty(password)) {
       return Left(
         AppError(
           type: ErrorType.uiEmptyPassword,

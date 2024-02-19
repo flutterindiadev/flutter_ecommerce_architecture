@@ -29,4 +29,9 @@ class UserRepositoryImpl extends UserRepository {
   Future<Either<NetworkError, void>> forgotPassword() {
     return networkPort.forgotPassword();
   }
+
+  @override
+  Future<Either<NetworkError, bool>> verifyotp(int otp) {
+    return networkPort.verifyotp(otp: otp);
+  }
 }

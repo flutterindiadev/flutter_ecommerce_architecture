@@ -9,4 +9,6 @@ abstract class UserRepository {
   Future<Either<DatabaseError, void>> saveUser(User user);
 
   Future<Either<NetworkError, void>> forgotPassword();
+
+  Future<Either<NetworkError, bool>> verifyotp(int otp);
 }

@@ -1,7 +1,8 @@
 import 'package:domain/domain.dart';
 import 'package:domain/src/usecase/base/base_usecase.dart';
 
-class GetProducts extends BaseUseCase {
+class GetProducts
+    extends BaseUseCase<BaseError, GetProductsParams, List<Product>> {
   final ProductRepository _productRepository;
 
   GetProducts(this._productRepository);
@@ -9,10 +10,14 @@ class GetProducts extends BaseUseCase {
   @override
   Future<Either<BaseError, List<Product>>> execute(
       {required Params params}) async {
-    return Future.value((await _productRepository.getProducts())
-        .fold((l) => Left(l), (result) async {
-      await _productRepository.saveProducts(result);
-      return Right(result);
-    }));
+    var response = await _productRepository.getProducts();
+    return response.fold((l) => Left(l), (r) => Right(r));
+  }
+}
+
+class GetProductsParams extends Params {
+  @override
+  Either<AppError, bool> verify() {
+    return Right(true);
   }
 }

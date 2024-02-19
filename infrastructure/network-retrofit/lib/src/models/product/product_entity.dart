@@ -4,6 +4,8 @@ import 'package:json_annotation/json_annotation.dart';
 @JsonSerializable()
 class ProductEntity
     implements BaseLayerDataTransformer<ProductEntity, Product> {
+  @JsonKey(name: 'id')
+  final int id;
   @JsonKey(name: 'name')
   final String name;
   @JsonKey(name: 'description')
@@ -17,10 +19,11 @@ class ProductEntity
   @JsonKey(name: 'price')
   final double price;
   @JsonKey(name: 'currency')
-  final Currency currency;
+  final String currencyid;
 
   ProductEntity(
-      {required this.currency,
+      {required this.id,
+      required this.currencyid,
       required this.name,
       required this.description,
       required this.imageUrl,
@@ -30,12 +33,13 @@ class ProductEntity
   @override
   ProductEntity restore(data) {
     return ProductEntity(
-        currency: data.currency,
+        currencyid: data.currencyid,
         name: data.name,
         description: data.description,
         imageUrl: data.imageUrl,
         category: data.category,
-        price: data.price);
+        price: data.price,
+        id: data.id);
   }
 
   @override
@@ -46,6 +50,7 @@ class ProductEntity
         imageUrl: imageUrl,
         price: price,
         category: category,
-        currency: currency);
+        currencyid: currencyid,
+        id: id);
   }
 }
