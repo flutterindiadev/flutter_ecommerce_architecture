@@ -9,4 +9,10 @@ abstract class UserRepository {
   Future<Either<NetworkError, Logout>> logout(LogoutRequest logoutRequest);
   Future<Either<NetworkError, bool>> verifyotp(int otp);
   Future<Either<NetworkError, bool>> userExists({required String email});
+
+  Future<Either<NetworkError, List<Product>>> getUserFavoriteProducts(
+      {required int userId});
+
+  Future<Either<NetworkError, UserProfile>> getUserProfile(
+      {required int userId});
 }

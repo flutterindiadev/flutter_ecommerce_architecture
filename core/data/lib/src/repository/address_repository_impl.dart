@@ -25,4 +25,9 @@ class AddressRepositoryImpl extends AddressRepository {
   Future<Either<NetworkError, List<Address>>> getAddresses() {
     return _networkPort.getAddresses();
   }
+
+  @override
+  Future<Either<NetworkError, Address>> editAddress(Address address) {
+    return _networkPort.addAddress(address: address);
+  }
 }

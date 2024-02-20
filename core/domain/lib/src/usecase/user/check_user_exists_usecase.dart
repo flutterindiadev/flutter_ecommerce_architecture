@@ -5,7 +5,7 @@ import '../../../domain.dart';
 
 class CheckUserExists
     extends BaseUseCase<BaseError, CheckUserExistsParams, bool> {
-  UserRepository _userRepository;
+  final UserRepository _userRepository;
 
   CheckUserExists(this._userRepository);
 

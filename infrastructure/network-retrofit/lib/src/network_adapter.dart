@@ -27,7 +27,7 @@ class NetworkAdapter implements NetworkPort {
   @override
   Future<Either<NetworkError, void>> forgotPassword() async {
     var response = await safeApiCall(apiService.forgotPassword());
-    return response.fold((l) => Left(l), (r) => Right(r));
+    return response.fold((l) => Left(l), (r) => Right(r.data));
   }
 
   @override
@@ -178,6 +178,31 @@ class NetworkAdapter implements NetworkPort {
   Future<Either<NetworkError, List<Product>>> searchProducts(
       {required String productName}) async {
     var response = await safeApiCall(apiService.searchProducts(productName));
+
+    return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
+  }
+
+  @override
+  Future<Either<NetworkError, Address>> editAddress(
+      {required Address address}) async {
+    var response = await safeApiCall(apiService.editAddress(address));
+
+    return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
+  }
+
+  @override
+  Future<Either<NetworkError, List<Product>>> getUserFavoriteProducts(
+      {required int userId}) async {
+    var response =
+        await safeApiCall(apiService.getUserFavoriteProducts(userId));
+
+    return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
+  }
+
+  @override
+  Future<Either<NetworkError, UserProfile>> getUserProfile(
+      {required int userId}) async {
+    var response = await safeApiCall(apiService.getUserProfile(userId));
 
     return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
   }

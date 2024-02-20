@@ -6,7 +6,7 @@ abstract class NetworkPort {
 
   Future<Either<NetworkError, Cart>> getCart({required int userId});
 
-  //onboarding
+  //User
 
   Future<Either<NetworkError, User>> loginWithEmail(
       {required LoginRequest loginRequest});
@@ -21,6 +21,12 @@ abstract class NetworkPort {
 
   Future<Either<NetworkError, Logout>> logout(
       {required LogoutRequest logoutRequest});
+
+  Future<Either<NetworkError, List<Product>>> getUserFavoriteProducts(
+      {required int userId});
+
+  Future<Either<NetworkError, UserProfile>> getUserProfile(
+      {required int userId});
 
   //products
 
@@ -51,6 +57,8 @@ abstract class NetworkPort {
 
   Future<Either<NetworkError, List<Address>>> deleteAddress(
       {required String addressId});
+
+  Future<Either<NetworkError, Address>> editAddress({required Address address});
 
   //voucher
 

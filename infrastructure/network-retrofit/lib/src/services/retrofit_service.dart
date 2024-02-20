@@ -12,8 +12,9 @@ import 'package:network_retrofit/src/models/voucher/vouchers_response_entity.dar
 import 'package:retrofit/retrofit.dart';
 
 import '../models/logout_entity/logout_response_entity.dart';
-import '../models/orderItem_entity/orderItem_Response_Entity.dart';
+import '../models/orderItem_entity/order_item_response_entity.dart';
 import '../models/user/user_exists_entity.dart';
+import '../models/user/user_profile_entity.dart';
 
 part 'retrofit_service.g.dart';
 
@@ -23,7 +24,7 @@ abstract class RetrofitService {
     return _RetrofitService(dio, baseUrl: dio.options.baseUrl);
   }
 
-  //onboarding
+  //user
 
   @POST("signup")
   Future<HttpResponse<UserResponseEntity>> signup(
@@ -41,6 +42,14 @@ abstract class RetrofitService {
   @GET("forgotpassword")
   Future<HttpResponse<UserExistsEntity>> userExists(
       @Query('email') String email);
+
+  @GET("forgotpassword")
+  Future<HttpResponse<ProductsResponseEntity>> getUserFavoriteProducts(
+      @Query('userId') int userId);
+
+  @GET("getUserProfile")
+  Future<HttpResponse<UserProfileEntity>> getUserProfile(
+      @Query('userId') int userId);
 
   //Product
 
@@ -87,8 +96,11 @@ abstract class RetrofitService {
   @POST("addAddress")
   Future<HttpResponse<AddressEntity>> addAddress(@Body() Address address);
 
-  @POST("changeAddress")
+  @PATCH("editAddress")
   Future<HttpResponse<AddressEntity>> changeAddress(@Body() Address address);
+
+  @POST("changeAddress")
+  Future<HttpResponse<AddressEntity>> editAddress(@Body() Address address);
 
   @POST("deleteAddress")
   Future<HttpResponse<AddressesResponseEntity>> deleteAddress(

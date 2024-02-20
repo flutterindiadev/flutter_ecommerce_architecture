@@ -4,15 +4,14 @@ import 'package:domain/src/usecase/base/base_usecase.dart';
 
 class SearchProductsUsecase
     extends BaseUseCase<BaseError, SearchProductsUsecaseParams, List<Product>> {
-  ProductRepository _productRepository;
+  final ProductRepository _productRepository;
 
   SearchProductsUsecase(this._productRepository);
 
   @override
   Future<Either<BaseError, List<Product>>> execute(
       {required SearchProductsUsecaseParams params}) {
-    // TODO: implement execute
-    throw UnimplementedError();
+    return _productRepository.searchProducts(params.productName);
   }
 }
 
