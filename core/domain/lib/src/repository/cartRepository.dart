@@ -10,6 +10,9 @@ abstract class CartRepository {
       {required GetCartItemsUseCaseParams getCartItemsUseCaseParams});
   Future<Either<NetworkError, Cart>> removeFromCart(
       {required RemovefromCartRequest removefromCartRequest});
-  Future<Either<NetworkError, OrderItem>> checkout(
+  Future<Either<NetworkError, OrderItem>> checkoutCart(
       {required CheckoutRequest checkoutRequest});
+
+  Future<Either<NetworkError, ChangeCartAddress>> changeCartAddress(
+      {required CartAddressChangeRequest cartAddressChangeRequest});
 }

@@ -1,8 +1,8 @@
 import 'package:shared/shared.dart';
 
-class AddtoCartRequest{
+class AddtoCartRequest {
   String cartId;
   Product product;
 
-  AddtoCartRequest({required this.product,required this.cartId});
+  AddtoCartRequest({required this.product, required this.cartId});
 }

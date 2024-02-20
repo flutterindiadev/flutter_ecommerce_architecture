@@ -1,6 +1,6 @@
 import '../../../shared.dart';
 
-class OrderItem{
+class OrderItem {
   String orderId;
   Product product;
   String paymentMode;
@@ -9,8 +9,8 @@ class OrderItem{
 
   OrderItem(
       {required this.orderId,
-     required this.product,
-     required this.paymentMode,
-     required this.deliveryDate,
+      required this.product,
+      required this.paymentMode,
+      required this.deliveryDate,
       required this.address});
 }

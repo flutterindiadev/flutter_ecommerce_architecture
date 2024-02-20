@@ -23,5 +23,4 @@ class ProductRepositoryImpl extends ProductRepository {
       getProductCategory() async {
     return networkPort.getProductCategory();
   }
-
 }

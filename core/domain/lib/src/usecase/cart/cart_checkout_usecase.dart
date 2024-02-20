@@ -10,7 +10,7 @@ class CheckoutUseCase
   @override
   Future<Either<NetworkError, OrderItem>> execute(
       {required CheckoutUseCaseParams params}) {
-    return cartRepository.checkout(checkoutRequest: params.checkoutRequest);
+    return cartRepository.checkoutCart(checkoutRequest: params.checkoutRequest);
   }
 }
 

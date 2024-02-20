@@ -1,4 +1,4 @@
-class CheckoutRequest{
+class CheckoutRequest {
   String orderId;
   String cartId;
 

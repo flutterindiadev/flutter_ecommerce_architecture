@@ -31,15 +31,11 @@ class UserRepositoryImpl extends UserRepository {
   }
 
   @override
-
   Future<Either<NetworkError, Logout>> logout(LogoutRequest logoutRequest) {
     return networkPort.logout(logoutRequest: logoutRequest);
   }
+
   Future<Either<NetworkError, bool>> verifyotp(int otp) {
     return networkPort.verifyotp(otp: otp);
-
   }
 }
-
-
-

@@ -8,5 +8,4 @@ abstract class UserRepository {
   Future<Either<NetworkError, void>> forgotPassword();
   Future<Either<NetworkError, Logout>> logout(LogoutRequest logoutRequest);
   Future<Either<NetworkError, bool>> verifyotp(int otp);
-
 }
