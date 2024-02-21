@@ -5,6 +5,8 @@ import 'package:network_retrofit/src/models/product/product_entity.dart';
 
 import '../address/address_entity.dart';
 
+part 'user_profile_entity.g.dart';
+
 @JsonSerializable()
 class UserProfileEntity
     implements BaseLayerDataTransformer<UserProfileEntity, UserProfile> {
@@ -21,6 +23,11 @@ class UserProfileEntity
   List<OrderItemEntity> orderHistory;
   @JsonKey(name: 'favoriteProducts')
   List<ProductEntity> favoriteProducts;
+
+  factory UserProfileEntity.fromJson(Map<String, dynamic> json) =>
+      _$UserProfileEntityFromJson(json);
+
+  Map<String, dynamic> toJson() => _$UserProfileEntityToJson(this);
 
   UserProfileEntity(
       {required this.address,
