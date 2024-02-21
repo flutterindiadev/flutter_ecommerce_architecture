@@ -56,4 +56,23 @@ class UserRepositoryImpl extends UserRepository {
       {required int userId}) {
     return networkPort.getUserProfile(userId: userId);
   }
+
+  @override
+  Future<Either<NetworkError, bool>> changePassword(
+      {required ChangePasswordRequest changePasswordRequest}) {
+    return networkPort.changePassword(
+        changePasswordRequest: changePasswordRequest);
+  }
+
+  @override
+  Future<Either<NetworkError, UserSettings>> getUserSettings(
+      {required int userId}) {
+    return networkPort.getUserSettings(userId: userId);
+  }
+
+  @override
+  Future<Either<NetworkError, UserProfile>> updateUserProfile(
+      {required UserProfile userProfile}) {
+    return networkPort.uodateUserProfile(userProfile: userProfile);
+  }
 }

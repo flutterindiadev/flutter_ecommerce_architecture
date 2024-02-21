@@ -6,4 +6,6 @@ abstract class ProductRepository {
   Future<Either<NetworkError, List<ProductCategory>>> getProductCategory();
   Future<Either<NetworkError, List<Product>>> searchProducts(
       String productName);
+
+  Future<Either<NetworkError, List<Product>>> selectCategory(String category);
 }

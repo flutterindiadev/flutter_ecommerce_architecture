@@ -22,5 +22,8 @@ enum ErrorType {
   cartIsEmpty,
 
   //User
-  userIdNotFound
+  userIdNotFound,
+
+  //category
+  blankCategory
 }

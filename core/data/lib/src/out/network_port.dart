@@ -17,6 +17,9 @@ abstract class NetworkPort {
 
   Future<Either<NetworkError, void>> forgotPassword();
 
+  Future<Either<NetworkError, bool>> changePassword(
+      {required ChangePasswordRequest changePasswordRequest});
+
   Future<Either<NetworkError, bool>> verifyotp({required int otp});
 
   Future<Either<NetworkError, Logout>> logout(
@@ -26,6 +29,12 @@ abstract class NetworkPort {
       {required int userId});
 
   Future<Either<NetworkError, UserProfile>> getUserProfile(
+      {required int userId});
+
+  Future<Either<NetworkError, UserProfile>> uodateUserProfile(
+      {required UserProfile userProfile});
+
+  Future<Either<NetworkError, UserSettings>> getUserSettings(
       {required int userId});
 
   //products
@@ -45,6 +54,9 @@ abstract class NetworkPort {
 
   Future<Either<NetworkError, List<Product>>> searchProducts(
       {required String productName});
+
+  Future<Either<NetworkError, List<Product>>> selectCategory(
+      {required String category});
 
   //Address
 

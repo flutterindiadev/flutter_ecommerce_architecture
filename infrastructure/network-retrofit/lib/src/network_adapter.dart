@@ -206,4 +206,36 @@ class NetworkAdapter implements NetworkPort {
 
     return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
   }
+
+  @override
+  Future<Either<NetworkError, List<Product>>> selectCategory(
+      {required String category}) async {
+    var response = await safeApiCall(apiService.selectCategory());
+
+    return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
+  }
+
+  @override
+  Future<Either<NetworkError, bool>> changePassword(
+      {required ChangePasswordRequest changePasswordRequest}) async {
+    var response =
+        await safeApiCall(apiService.changePassword(changePasswordRequest));
+
+    return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
+  }
+
+  @override
+  Future<Either<NetworkError, UserSettings>> getUserSettings(
+      {required int userId}) async {
+    var response = await safeApiCall(apiService.getUserSettings(userId));
+    return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
+  }
+
+  @override
+  Future<Either<NetworkError, UserProfile>> uodateUserProfile(
+      {required UserProfile userProfile}) async {
+    var response = await safeApiCall(apiService.updateUserProfile(userProfile));
+
+    return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
+  }
 }

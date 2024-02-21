@@ -6,7 +6,9 @@ import 'package:network_retrofit/src/models/cart_entity/cart_Response_Entity.dar
 import 'package:network_retrofit/src/models/product/product_category_response_entity.dart';
 import 'package:network_retrofit/src/models/product/product_response_entity.dart';
 import 'package:network_retrofit/src/models/product/products_response_entity.dart';
+import 'package:network_retrofit/src/models/user/change_password_entity.dart';
 import 'package:network_retrofit/src/models/user/user_response_entity.dart';
+import 'package:network_retrofit/src/models/user/user_settings_entity.dart';
 import 'package:network_retrofit/src/models/user/verifyotp_entity.dart';
 import 'package:network_retrofit/src/models/voucher/vouchers_response_entity.dart';
 import 'package:retrofit/retrofit.dart';
@@ -39,16 +41,28 @@ abstract class RetrofitService {
   @POST("forgotpassword")
   Future<HttpResponse> forgotPassword();
 
-  @GET("forgotpassword")
+  @GET("userExists")
   Future<HttpResponse<UserExistsEntity>> userExists(
       @Query('email') String email);
 
-  @GET("forgotpassword")
+  @GET("forgotPassword")
   Future<HttpResponse<ProductsResponseEntity>> getUserFavoriteProducts(
       @Query('userId') int userId);
 
+  @POST("changePassword")
+  Future<HttpResponse<ChangePasswordEntity>> changePassword(
+      @Body() ChangePasswordRequest changePasswordRequest);
+
   @GET("getUserProfile")
   Future<HttpResponse<UserProfileEntity>> getUserProfile(
+      @Query('userId') int userId);
+
+  @PATCH("updateUserProfile")
+  Future<HttpResponse<UserProfileEntity>> updateUserProfile(
+      @Body() UserProfile userProfile);
+
+  @GET("getUserSettings")
+  Future<HttpResponse<UserSettingsEntity>> getUserSettings(
       @Query('userId') int userId);
 
   //Product
@@ -91,6 +105,9 @@ abstract class RetrofitService {
 
   @GET("getproductCategory")
   Future<HttpResponse<ProductCategoryResponseEntity>> getProductCategory();
+
+  @GET("selectcategory")
+  Future<HttpResponse<ProductsResponseEntity>> selectCategory();
 
   //Address
   @POST("addAddress")

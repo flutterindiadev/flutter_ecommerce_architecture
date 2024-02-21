@@ -29,4 +29,9 @@ class ProductRepositoryImpl extends ProductRepository {
       String productName) {
     return networkPort.searchProducts(productName: productName);
   }
+
+  @override
+  Future<Either<NetworkError, List<Product>>> selectCategory(String category) {
+    return networkPort.selectCategory(category: category);
+  }
 }
