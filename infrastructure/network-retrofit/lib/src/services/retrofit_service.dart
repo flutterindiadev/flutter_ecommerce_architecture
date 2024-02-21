@@ -1,5 +1,6 @@
 import 'package:data/data.dart';
 import 'package:dio/dio.dart';
+import 'package:network_retrofit/src/models/CartVoucher/cart_voucher_add_entity.dart';
 import 'package:network_retrofit/src/models/cart_entity/cart_Response_Entity.dart';
 import 'package:network_retrofit/src/models/address/address_entity.dart';
 import 'package:network_retrofit/src/models/address/addresses_response_entity.dart';
@@ -11,8 +12,10 @@ import 'package:network_retrofit/src/models/user/user_response_entity.dart';
 import 'package:network_retrofit/src/models/user/verifyotp_entity.dart';
 import 'package:network_retrofit/src/models/voucher/vouchers_response_entity.dart';
 import 'package:retrofit/retrofit.dart';
+import '../models/cart_voucher_remove/cart_voucher_remove_entity.dart';
 import '../models/logout_entity/logout_response_entity.dart';
 import '../models/orderItem_entity/orderItem_Response_Entity.dart';
+import '../models/orderItem_entity/orderitems_response_entity.dart';
 part 'retrofit_service.g.dart';
 
 @RestApi()
@@ -36,6 +39,8 @@ abstract class RetrofitService {
   @POST("forgotpassword")
   Future<HttpResponse> forgotPassword();
 
+  @GET("getorderlist")
+  Future<HttpResponse<OrderItemsResponseEntity>> getOrderList();
   //Product
 
   @GET("getproduct")
@@ -47,6 +52,16 @@ abstract class RetrofitService {
   @POST("AddtoCart")
   Future<HttpResponse<CartResponseEntity>> addtoCart(
     @Body() AddtoCartRequest addCartRequest,
+  );
+
+  @POST("addvouchertoCart")
+  Future<HttpResponse<CartVoucherEntity>> addVouchertoCart(
+    @Body() CartVoucherAddRequest cartVoucherAddRequest,
+  );
+
+  @POST("removevoucherfromcart")
+  Future<HttpResponse<CartVoucherRemoveEntity>> removeVoucherFromCart(
+    @Body() CartVoucherRemoveRequest cartVoucherRemoveRequest,
   );
 
   @POST("RemoveFromCart")

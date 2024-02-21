@@ -15,4 +15,8 @@ abstract class CartRepository {
 
   Future<Either<NetworkError, ChangeCartAddress>> changeCartAddress(
       {required CartAddressChangeRequest cartAddressChangeRequest});
+  Future<Either<NetworkError, CartVoucher>> addVoucherInCart(
+      {required CartVoucherAddRequest cartVoucherAddRequest});
+  Future<Either<NetworkError, CartVoucherRemove>> removeVoucherfromCart(
+      {required CartVoucherRemoveRequest cartVoucherRemoveRequest});
 }

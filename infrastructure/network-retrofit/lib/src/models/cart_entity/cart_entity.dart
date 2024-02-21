@@ -3,9 +3,11 @@ import 'package:data/data.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import '../product/product_entity.dart';
+part 'cart_entity.g.dart';
 
 @JsonSerializable()
 class CartEntity implements BaseLayerDataTransformer<CartEntity, Cart> {
+
   @JsonKey(name: 'cartId')
   final String cartId;
   @JsonKey(name: 'productlist')
@@ -41,6 +43,10 @@ class CartEntity implements BaseLayerDataTransformer<CartEntity, Cart> {
       cartId: data.cartId,
     );
   }
+  factory CartEntity.fromJson(Map<String, dynamic> json) =>
+      _$CartEntityFromJson(json);
+
+  Map<String, dynamic> toJson() => _$CartEntityToJson(this);
 
   @override
   Cart transform() {

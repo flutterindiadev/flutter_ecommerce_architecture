@@ -9,4 +9,9 @@ class Validator {
   static bool isEmpty(String data) {
     return data.isEmpty;
   }
+
+///////////////////voucher///////////////////////////
+  static bool isCartAvailable(bool isused) {
+    return isused;
+  }
 }

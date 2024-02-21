@@ -38,4 +38,9 @@ class UserRepositoryImpl extends UserRepository {
   Future<Either<NetworkError, bool>> verifyotp(int otp) {
     return networkPort.verifyotp(otp: otp);
   }
+
+  @override
+  Future<Either<NetworkError, List<OrderItem>>> getOrderList(String userId) {
+   return networkPort.getOrderList(userId: userId);
+  }
 }

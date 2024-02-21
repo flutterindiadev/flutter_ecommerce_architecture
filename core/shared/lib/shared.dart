@@ -15,9 +15,10 @@ export 'src/model/error_info.dart';
 export 'src/model/login_request.dart';
 export 'src/model/product/currency.dart';
 export 'src/model/product/product.dart';
-export 'src/model/cart/change_cart_Address.dart';
+export 'src/model/cart/change_cart_address.dart';
 export 'src/model/logout/logout.dart';
 export 'src/model/order/oderItem.dart';
+export 'src/model/cart/cartVoucher.dart';
 
 export 'src/model/product/product_category.dart';
 
@@ -27,9 +28,12 @@ export 'src/model/voucher.dart';
 export 'src/shared_base.dart';
 export 'src/utils/mapper/base_layer_transformer.dart';
 export 'src/model/request/add_to_cart_request.dart';
-export 'src/model/request/checkoutRequest.dart';
+export 'src/model/request/checkoutrequest.dart';
 export 'src/model/logout_request.dart';
-export 'src/model/request/remove_from_Cart_Request.dart';
+export 'src/model/cart/cartvoucherRemove.dart';
+export 'src/model/request/remove_from_cart_request.dart';
+export 'src/model/request/cart_Voucher_add_request.dart';
+export 'src/model/request/cart_voucher_remove_request.dart';
 export 'src/model/request/cart_address_change_request.dart';
 //utils
 export 'src/utils/validator.dart';

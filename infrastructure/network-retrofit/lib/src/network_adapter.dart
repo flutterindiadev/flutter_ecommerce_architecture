@@ -174,4 +174,30 @@ class NetworkAdapter implements NetworkPort {
 
     return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
   }
+
+  @override
+  Future<Either<NetworkError, CartVoucher>> addVoucherinCart(
+      {required CartVoucherAddRequest cartVoucherAddRequest}) async {
+    var response =
+        await safeApiCall(apiService.addVouchertoCart(cartVoucherAddRequest));
+
+    return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
+  }
+
+  @override
+  Future<Either<NetworkError, CartVoucherRemove>> removeVoucherfromCart(
+      {required CartVoucherRemoveRequest cartVoucherRemoveRequest}) async {
+    var response = await safeApiCall(
+        apiService.removeVoucherFromCart(cartVoucherRemoveRequest));
+
+    return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
+  }
+
+  @override
+  Future<Either<NetworkError, List<OrderItem>>> getOrderList(
+      {required String userId}) async {
+    var response = await safeApiCall(apiService.getOrderList());
+
+    return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
+  }
 }

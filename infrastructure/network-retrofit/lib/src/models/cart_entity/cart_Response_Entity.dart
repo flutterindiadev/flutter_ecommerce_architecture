@@ -30,6 +30,11 @@ class CartResponseEntity
             .toList()));
   }
 
+  factory CartResponseEntity.fromJson(Map<String, dynamic> json) =>
+      _$CartResponseEntityFromJson(json);
+
+  Map<String, dynamic> toJson() => _$CartResponseEntityToJson(this);
+
   @override
   Cart transform() {
     return Cart(

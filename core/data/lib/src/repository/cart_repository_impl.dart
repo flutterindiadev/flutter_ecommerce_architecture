@@ -42,4 +42,16 @@ class CartRepositoryImpl extends CartRepository {
     return await networkPort.changeCartAddress(
         cartAddressChangeRequest: cartAddressChangeRequest);
   }
+
+  @override
+  Future<Either<NetworkError, CartVoucher>> addVoucherInCart(
+      {required CartVoucherAddRequest cartVoucherAddRequest}) async{
+    return await networkPort.addVoucherinCart(cartVoucherAddRequest: cartVoucherAddRequest);
+  }
+
+  @override
+  Future<Either<NetworkError, CartVoucherRemove>> removeVoucherfromCart({required CartVoucherRemoveRequest cartVoucherRemoveRequest}) {
+    // TODO: implement removeVoucherfromCart
+    throw UnimplementedError();
+  }
 }
