@@ -1,5 +1,5 @@
-class OrderRepeat{
+class OrderCancel{
   bool status;
 
-  OrderRepeat({required this.status});
+  OrderCancel({required this.status});
 }

@@ -1,7 +1,7 @@
 import 'package:domain/domain.dart';
 
 abstract class NetworkPort {
-  Future<Either<NetworkError, Cart>> addtoCart(
+  Future<Either<NetworkError, bool>> addtoCart(
       {required AddtoCartRequest addtoCartRequest});
 
   Future<Either<NetworkError, Cart>> getCart({required int userId});
@@ -20,7 +20,7 @@ abstract class NetworkPort {
   Future<Either<NetworkError, void>> forgotPassword();
 
   Future<Either<NetworkError, bool>> verifyotp({required int otp});
-  Future<Either<NetworkError, List<OrderItem>>> getOrderList({required String userId});
+
   //products
 
   Future<Either<NetworkError, List<Product>>> getProducts();
@@ -53,4 +53,17 @@ abstract class NetworkPort {
   //voucher
 
   Future<Either<NetworkError, List<Voucher>>> getVouchers();
+
+  /////order////////
+  Future<Either<NetworkError, List<OrderItem>>> getOrderList(
+      {required String userId});
+  Future<Either<NetworkError, OrderItem?>> getOrderDetail(
+      {required String? orderId});
+  Future<Either<NetworkError, OrderRating>> getOrderRating(
+      {required OrderRatingRequest orderRatingRequest});
+
+  Future<Either<NetworkError, OrderRepeat>> doOrderRepeat(
+      {required String? orderId});
+  Future<Either<NetworkError, OrderCancel>> orderCancel(
+      {required String? orderId});
 }

@@ -8,7 +8,7 @@ class CartRepositoryImpl extends CartRepository {
   final NetworkPort networkPort;
   CartRepositoryImpl(this.networkPort);
   @override
-  Future<Either<NetworkError, Cart>> addToCart(
+  Future<Either<NetworkError, bool>> addToCart(
       {required AddtoCartRequest addtoCartRequest}) async {
     return await networkPort.addtoCart(
       addtoCartRequest: addtoCartRequest,
@@ -45,12 +45,14 @@ class CartRepositoryImpl extends CartRepository {
 
   @override
   Future<Either<NetworkError, CartVoucher>> addVoucherInCart(
-      {required CartVoucherAddRequest cartVoucherAddRequest}) async{
-    return await networkPort.addVoucherinCart(cartVoucherAddRequest: cartVoucherAddRequest);
+      {required CartVoucherAddRequest cartVoucherAddRequest}) async {
+    return await networkPort.addVoucherinCart(
+        cartVoucherAddRequest: cartVoucherAddRequest);
   }
 
   @override
-  Future<Either<NetworkError, CartVoucherRemove>> removeVoucherfromCart({required CartVoucherRemoveRequest cartVoucherRemoveRequest}) {
+  Future<Either<NetworkError, CartVoucherRemove>> removeVoucherfromCart(
+      {required CartVoucherRemoveRequest cartVoucherRemoveRequest}) {
     // TODO: implement removeVoucherfromCart
     throw UnimplementedError();
   }

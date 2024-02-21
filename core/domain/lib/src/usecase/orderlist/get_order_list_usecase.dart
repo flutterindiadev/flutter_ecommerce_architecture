@@ -1,16 +1,18 @@
+import 'package:domain/src/repository/order_repository.dart';
+
 import '../../../domain.dart';
 import '../base/base_usecase.dart';
 
 class GetOrderListUsecase  extends BaseUseCase<NetworkError, GetOrderListUsecaseParams,
    List <OrderItem>> {
-  UserRepository userRepository;
+  OrderRepository orderRepository;
 
 
-  GetOrderListUsecase({required this.userRepository});
+  GetOrderListUsecase({required this.orderRepository});
 
   @override
   Future<Either<NetworkError, List<OrderItem>>> execute({required GetOrderListUsecaseParams params}) {
-   return userRepository.getOrderList(params.userId);
+   return orderRepository.getOrderList(userId: params.userId);
   }
 }
 

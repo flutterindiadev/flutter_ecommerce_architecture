@@ -4,7 +4,7 @@ import '../../domain.dart';
 import '../usecase/cart/remove_from_cart_usecase.dart';
 
 abstract class CartRepository {
-  Future<Either<NetworkError, Cart>> addToCart(
+  Future<Either<NetworkError, bool>> addToCart(
       {required AddtoCartRequest addtoCartRequest});
   Future<Either<NetworkError, Cart>> getCart(
       {required GetCartItemsUseCaseParams getCartItemsUseCaseParams});
