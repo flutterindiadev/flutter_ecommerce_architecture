@@ -232,7 +232,7 @@ class NetworkAdapter implements NetworkPort {
   }
 
   @override
-  Future<Either<NetworkError, UserProfile>> uodateUserProfile(
+  Future<Either<NetworkError, UserProfile>> updateUserProfile(
       {required UserProfile userProfile}) async {
     var response = await safeApiCall(apiService.updateUserProfile(userProfile));
 

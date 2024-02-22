@@ -31,7 +31,7 @@ abstract class NetworkPort {
   Future<Either<NetworkError, UserProfile>> getUserProfile(
       {required int userId});
 
-  Future<Either<NetworkError, UserProfile>> uodateUserProfile(
+  Future<Either<NetworkError, UserProfile>> updateUserProfile(
       {required UserProfile userProfile});
 
   Future<Either<NetworkError, UserSettings>> getUserSettings(

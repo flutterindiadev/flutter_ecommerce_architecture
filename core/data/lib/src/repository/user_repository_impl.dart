@@ -73,6 +73,6 @@ class UserRepositoryImpl extends UserRepository {
   @override
   Future<Either<NetworkError, UserProfile>> updateUserProfile(
       {required UserProfile userProfile}) {
-    return networkPort.uodateUserProfile(userProfile: userProfile);
+    return networkPort.updateUserProfile(userProfile: userProfile);
   }
 }

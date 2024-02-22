@@ -31,7 +31,13 @@ class ChangePasswordUsecaseParams extends Params {
 
   @override
   Either<AppError, bool> verify() {
-    // TODO: implement verify
-    throw UnimplementedError();
+    if (Validator.isUserIdValid(userId)) {
+      return Right(true);
+    } else {
+      return Left(AppError(
+          throwable: Exception(),
+          error: ErrorInfo(message: ''),
+          type: ErrorType.userIdNotFound));
+    }
   }
 }

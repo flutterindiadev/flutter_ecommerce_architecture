@@ -42,6 +42,19 @@ class EditAddressUsecaseParams extends Params {
 
   @override
   Either<AppError, bool> verify() {
-    return Right(true);
+    if (id != 0 &&
+        streetName.isNotEmpty &&
+        country.isNotEmpty &&
+        pincode != 0 &&
+        floor.isNotEmpty &&
+        building.isNotEmpty &&
+        apartment.isNotEmpty) {
+      return Right(true);
+    } else {
+      return Left(AppError(
+          throwable: Exception(),
+          error: ErrorInfo(message: ''),
+          type: ErrorType.invalidAddress));
+    }
   }
 }

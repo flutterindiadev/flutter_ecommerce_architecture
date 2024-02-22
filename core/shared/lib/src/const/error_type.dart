@@ -25,5 +25,8 @@ enum ErrorType {
   userIdNotFound,
 
   //category
-  blankCategory
+  blankCategory,
+
+  //Address
+  invalidAddress
 }

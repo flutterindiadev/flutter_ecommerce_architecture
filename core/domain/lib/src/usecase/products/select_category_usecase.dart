@@ -21,7 +21,7 @@ class SelectCategoryUsecaseParams extends Params {
 
   @override
   Either<AppError, bool> verify() {
-    if (category == '') {
+    if (category.isNotEmpty) {
       return Left(AppError(
         error: ErrorInfo(
           message: '',

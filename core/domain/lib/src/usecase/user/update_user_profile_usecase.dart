@@ -64,6 +64,13 @@ class UpdateUserprofileUsecaseParams extends Params {
 
   @override
   Either<AppError, bool> verify() {
-    return Right(true);
+    if (Validator.isUserIdValid(userId)) {
+      return Right(true);
+    } else {
+      return Left(AppError(
+          throwable: Exception(),
+          error: ErrorInfo(message: ''),
+          type: ErrorType.userIdNotFound));
+    }
   }
 }
