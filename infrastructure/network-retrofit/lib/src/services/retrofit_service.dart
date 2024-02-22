@@ -15,6 +15,7 @@ import 'package:retrofit/retrofit.dart';
 
 import '../models/logout_entity/logout_response_entity.dart';
 import '../models/orderItem_entity/order_item_response_entity.dart';
+import '../models/product/promotions_response_entity.dart';
 import '../models/user/user_exists_entity.dart';
 import '../models/user/user_profile_entity.dart';
 
@@ -108,6 +109,9 @@ abstract class RetrofitService {
 
   @GET("selectcategory")
   Future<HttpResponse<ProductsResponseEntity>> selectCategory();
+
+  @GET("getPromotions")
+  Future<HttpResponse<PromotionsResponseEntity>> getPromotions();
 
   //Address
   @POST("addAddress")

@@ -8,4 +8,6 @@ abstract class ProductRepository {
       String productName);
 
   Future<Either<NetworkError, List<Product>>> selectCategory(String category);
+
+  Future<Either<NetworkError, List<Promotion>>> getPromotions();
 }

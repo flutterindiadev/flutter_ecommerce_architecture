@@ -34,4 +34,9 @@ class ProductRepositoryImpl extends ProductRepository {
   Future<Either<NetworkError, List<Product>>> selectCategory(String category) {
     return networkPort.selectCategory(category: category);
   }
+
+  @override
+  Future<Either<NetworkError, List<Promotion>>> getPromotions() {
+    return networkPort.getPromotions();
+  }
 }

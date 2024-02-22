@@ -238,4 +238,11 @@ class NetworkAdapter implements NetworkPort {
 
     return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
   }
+
+  @override
+  Future<Either<NetworkError, List<Promotion>>> getPromotions() async {
+    var response = await safeApiCall(apiService.getPromotions());
+
+    return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
+  }
 }

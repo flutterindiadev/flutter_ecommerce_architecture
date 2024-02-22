@@ -58,6 +58,8 @@ abstract class NetworkPort {
   Future<Either<NetworkError, List<Product>>> selectCategory(
       {required String category});
 
+  Future<Either<NetworkError, List<Promotion>>> getPromotions();
+
   //Address
 
   Future<Either<NetworkError, Address>> addAddress({required Address address});
