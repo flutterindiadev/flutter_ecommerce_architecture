@@ -16,7 +16,7 @@ class OrderCancelUsecase
 
 class OrderCancelUsecaseParam extends Params {
   String? orderId;
-  OrderCancelUsecaseParam({int? orderId});
+  OrderCancelUsecaseParam({this.orderId});
 
   @override
   Either<AppError, bool> verify() {

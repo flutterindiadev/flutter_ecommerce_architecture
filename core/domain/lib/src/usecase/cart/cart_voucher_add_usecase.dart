@@ -12,7 +12,6 @@ class CartVoucherAddUseCase
       {required CartVoucherUseCaseParams params}) {
     return cartRepository.addVoucherInCart(
         cartVoucherAddRequest: CartVoucherAddRequest(
-            isVoucherIdAvailable: params.isVoucherIsAvailable,
             cartId: params.cartId,
             voucherId: params.voucherId));
   }
@@ -21,25 +20,16 @@ class CartVoucherAddUseCase
 class CartVoucherUseCaseParams extends Params {
   String cartId;
   String voucherId;
-  final bool isVoucherIsAvailable;
+
 
   CartVoucherUseCaseParams({
     required this.cartId,
     required this.voucherId,
-    required this.isVoucherIsAvailable,
+
   });
 
   @override
   Either<AppError, bool> verify() {
-    if (Validator.isCartAvailable(this.isVoucherIsAvailable)) {
-      return Left(
-        AppError(
-          type: ErrorType.voucherIsNotAvailable,
-          throwable: Exception(),
-          error: ErrorInfo(message: ' '),
-        ),
-      );
-    } else
-      return Right(true);
+   return Right(true);
   }
 }

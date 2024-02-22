@@ -11,8 +11,8 @@ class Validator {
   }
 
 ///////////////////voucher///////////////////////////
-  static bool isCartAvailable(bool isused) {
-    return isused;
+  static bool isVoucherAvailable(bool isnotused) {
+    return isnotused;
   }
 
   /////adresss//////
