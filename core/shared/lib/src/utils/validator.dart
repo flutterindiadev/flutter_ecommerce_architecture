@@ -10,10 +10,6 @@ class Validator {
     return data.isEmpty;
   }
 
-///////////////////voucher///////////////////////////
-  static bool isVoucherAvailable(bool isnotused) {
-    return isnotused;
-  }
 
   /////adresss//////
   static bool isPinCodecorrect(String pincode) {
