@@ -6,8 +6,7 @@ part 'cart_voucher_add_response_entity.g.dart';
 @JsonSerializable()
 class CartVoucherResponseEntity
     implements
-        BaseLayerDataTransformer<CartVoucherResponseEntity, CartVoucher>
-{
+        BaseLayerDataTransformer<CartVoucherResponseEntity, CartVoucher> {
   @JsonKey(name: 'data')
   CartVoucherEntity cartVoucherEntity;
 
@@ -28,10 +27,9 @@ class CartVoucherResponseEntity
 
   @override
   CartVoucherResponseEntity restore(CartVoucher data) {
-    return CartVoucherResponseEntity(
-       CartVoucherEntity(
-            voucherdiscount: data.voucherdiscount,
-            cartTotal: data.cartTotal,
-            cartValueAfterDiscount: data.cartValueAfterDiscount));
+    return CartVoucherResponseEntity(CartVoucherEntity(
+        voucherdiscount: data.voucherdiscount,
+        cartTotal: data.cartTotal,
+        cartValueAfterDiscount: data.cartValueAfterDiscount));
   }
 }

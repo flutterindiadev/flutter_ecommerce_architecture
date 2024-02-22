@@ -1,4 +1,4 @@
-class OrderRating{
+class OrderRating {
   bool status;
 
   OrderRating({required this.status});

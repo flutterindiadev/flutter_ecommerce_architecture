@@ -19,5 +19,14 @@ enum ErrorType {
   databaseError1,
   databaseUserNotFound,
   //Cart
-  cartIsEmpty
+  cartIsEmpty,
+
+  //Voucher
+  voucherIsNotAvailable,
+
+  ////address////
+  addressIsEmpty,
+
+  ///order////
+  notRated
 }

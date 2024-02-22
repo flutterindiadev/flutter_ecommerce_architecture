@@ -3,7 +3,8 @@ import 'package:json_annotation/json_annotation.dart';
 part 'order_cancel_entity.g.dart';
 
 @JsonSerializable()
-class OrderCancelEntity implements BaseLayerDataTransformer<OrderCancelEntity,OrderCancel>{
+class OrderCancelEntity
+    implements BaseLayerDataTransformer<OrderCancelEntity, OrderCancel> {
   @JsonKey(name: 'status')
   bool status;
 
@@ -14,14 +15,13 @@ class OrderCancelEntity implements BaseLayerDataTransformer<OrderCancelEntity,Or
 
   Map<String, dynamic> toJson() => _$OrderCancelEntityToJson(this);
 
-
   @override
   OrderCancelEntity restore(OrderCancel data) {
-   return OrderCancelEntity(status: status);
+    return OrderCancelEntity(status: status);
   }
 
   @override
   OrderCancel transform() {
-  return OrderCancel(status: status);
+    return OrderCancel(status: status);
   }
 }

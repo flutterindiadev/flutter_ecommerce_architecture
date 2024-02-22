@@ -41,6 +41,6 @@ class UserRepositoryImpl extends UserRepository {
 
   @override
   Future<Either<NetworkError, List<OrderItem>>> getOrderList(String userId) {
-   return networkPort.getOrderList(userId: userId);
+    return networkPort.getOrderList(userId: userId);
   }
 }

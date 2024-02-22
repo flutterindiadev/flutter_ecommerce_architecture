@@ -9,51 +9,51 @@ class CartRepositoryImpl extends CartRepository {
   CartRepositoryImpl(this.networkPort);
   @override
   Future<Either<NetworkError, bool>> addToCart(
-      {required AddtoCartRequest addtoCartRequest}) async {
-    return await networkPort.addtoCart(
+      {required AddtoCartRequest addtoCartRequest}) {
+    return networkPort.addtoCart(
       addtoCartRequest: addtoCartRequest,
     );
   }
 
   @override
   Future<Either<NetworkError, Cart>> getCart(
-      {required GetCartItemsUseCaseParams getCartItemsUseCaseParams}) async {
-    return await networkPort.getCart(
+      {required GetCartItemsUseCaseParams getCartItemsUseCaseParams}) {
+    return networkPort.getCart(
       userId: getCartItemsUseCaseParams.userId,
     );
   }
 
   @override
   Future<Either<NetworkError, Cart>> removeFromCart(
-      {required RemovefromCartRequest removefromCartRequest}) async {
-    return await networkPort.removeFromCart(
+      {required RemovefromCartRequest removefromCartRequest}) {
+    return networkPort.removeFromCart(
         removefromCartRequest: removefromCartRequest);
   }
 
   @override
   Future<Either<NetworkError, OrderItem>> checkoutCart(
-      {required CheckoutRequest checkoutRequest}) async {
-    return await networkPort.checkoutCart(checkoutRequest: checkoutRequest);
+      {required CheckoutRequest checkoutRequest}) {
+    return networkPort.checkoutCart(checkoutRequest: checkoutRequest);
   }
 
   @override
   Future<Either<NetworkError, ChangeCartAddress>> changeCartAddress(
-      {required CartAddressChangeRequest cartAddressChangeRequest}) async {
-    return await networkPort.changeCartAddress(
+      {required CartAddressChangeRequest cartAddressChangeRequest}) {
+    return networkPort.changeCartAddress(
         cartAddressChangeRequest: cartAddressChangeRequest);
   }
 
   @override
   Future<Either<NetworkError, CartVoucher>> addVoucherInCart(
-      {required CartVoucherAddRequest cartVoucherAddRequest}) async {
-    return await networkPort.addVoucherinCart(
+      {required CartVoucherAddRequest cartVoucherAddRequest}) {
+    return networkPort.addVoucherinCart(
         cartVoucherAddRequest: cartVoucherAddRequest);
   }
 
   @override
   Future<Either<NetworkError, CartVoucherRemove>> removeVoucherfromCart(
       {required CartVoucherRemoveRequest cartVoucherRemoveRequest}) {
-    // TODO: implement removeVoucherfromCart
-    throw UnimplementedError();
+    return networkPort.removeVoucherfromCart(
+        cartVoucherRemoveRequest: cartVoucherRemoveRequest);
   }
 }

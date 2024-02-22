@@ -25,7 +25,14 @@ class CartAddressChangeUseCaseParams extends Params {
 
   @override
   Either<AppError, bool> verify() {
-
-    return right(true);
+    if (Validator.isEmpty(addressId))
+      return Left(
+        AppError(
+            throwable: Exception(),
+            error: ErrorInfo(message: ''),
+            type: ErrorType.addressIsEmpty),
+      );
+    else
+      return right(true);
   }
 }

@@ -1,7 +1,8 @@
-class OrderRatingRequest{
+class OrderRatingRequest {
   String orderId;
   int rating;
-  String review;
+  String? review;
 
-  OrderRatingRequest({required this.orderId,required this.rating, required this.review});
+  OrderRatingRequest(
+      {required this.orderId, required this.rating, required this.review});
 }

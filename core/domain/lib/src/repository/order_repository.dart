@@ -3,8 +3,9 @@ import 'dart:async';
 import '../../domain.dart';
 import '../../domain.dart';
 
-abstract class OrderRepository{
-  Future<Either<NetworkError, List<OrderItem>>> getOrderList({required String userId});
+abstract class OrderRepository {
+  Future<Either<NetworkError, List<OrderItem>>> getOrderList(
+      {required String userId});
 
   Future<Either<NetworkError, OrderItem?>> getOrderDetail(
       {required String orderId});
@@ -15,8 +16,6 @@ abstract class OrderRepository{
   Future<Either<NetworkError, OrderRepeat>> doOrderRepeat(
       {required String? orderId});
 
-
   Future<Either<NetworkError, OrderCancel>> orderCancel(
       {required String? orderId});
-
 }

@@ -43,4 +43,3 @@ export 'src/model/cart/cart.dart';
 export 'src/model/order/order_rating.dart';
 export 'src/model/order/order_repeat.dart';
 export 'src/model/order/order_cancel.dart';
-

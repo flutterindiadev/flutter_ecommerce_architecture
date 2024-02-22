@@ -42,7 +42,6 @@ abstract class RetrofitService {
   @POST("forgotpassword")
   Future<HttpResponse> forgotPassword();
 
-
   //Product
 
   @GET("getproduct")
@@ -114,7 +113,6 @@ abstract class RetrofitService {
   @GET("verifyotp")
   Future<HttpResponse<VerifyotpEntity>> verifyotp(@Body() int otp);
 
-
   //////order////////////
   @GET("getorderlist")
   Future<HttpResponse<OrderItemsResponseEntity>> getOrderList();
@@ -123,15 +121,14 @@ abstract class RetrofitService {
   Future<HttpResponse<OrderItemResponseEntity>> getOrderDetail();
 
   @POST("orderCancell")
-  Future<HttpResponse<OrderCancelResponseEntity>> orderCancel( @Body()  String? orderId );
+  Future<HttpResponse<OrderCancelResponseEntity>> orderCancel(
+      @Body() String? orderId);
 
   @POST("getorderrating")
   Future<HttpResponse<OrderRatingResponseEntity>> getOrderRating(
-      @Body() OrderRatingRequest orderRatingRequest
-      );
+      @Body() OrderRatingRequest orderRatingRequest);
 
   @POST("getorderrepeat")
   Future<HttpResponse<OrderRepeatResponseEntity>> doOrderRepeat(
-      @Body() String? orderId
-      );
+      @Body() String? orderId);
 }

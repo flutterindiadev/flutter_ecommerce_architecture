@@ -5,11 +5,11 @@ import 'order_repeat_entity.dart';
 part 'order_repeat_response_entity.g.dart';
 
 @JsonSerializable()
-class OrderRepeatResponseEntity implements BaseLayerDataTransformer<OrderRepeatResponseEntity,OrderRepeat> {
-
+class OrderRepeatResponseEntity
+    implements
+        BaseLayerDataTransformer<OrderRepeatResponseEntity, OrderRepeat> {
   @JsonKey(name: 'data')
   OrderRepeatEntity orderRepeatEntity;
-
 
   OrderRepeatResponseEntity({required this.orderRepeatEntity});
 
@@ -20,14 +20,12 @@ class OrderRepeatResponseEntity implements BaseLayerDataTransformer<OrderRepeatR
 
   @override
   OrderRepeatResponseEntity restore(OrderRepeat data) {
-   return OrderRepeatResponseEntity(orderRepeatEntity:
-   OrderRepeatEntity(status: data.status));
+    return OrderRepeatResponseEntity(
+        orderRepeatEntity: OrderRepeatEntity(status: data.status));
   }
 
   @override
   OrderRepeat transform() {
     return OrderRepeat(status: orderRepeatEntity.status);
   }
-
-
 }

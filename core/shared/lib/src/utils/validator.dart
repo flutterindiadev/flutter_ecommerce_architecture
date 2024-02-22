@@ -14,4 +14,18 @@ class Validator {
   static bool isCartAvailable(bool isused) {
     return isused;
   }
+
+  /////adresss//////
+  static bool isPinCodecorrect(String pincode) {
+    return (pincode.length == 6) ? true : false;
+  }
+
+  //////order/////
+  static bool isnotRated(int rating) {
+    return (rating == 0) ? false : true;
+  }
+
+  static bool isnoOrder(int rating) {
+    return (rating == 0) ? false : true;
+  }
 }
