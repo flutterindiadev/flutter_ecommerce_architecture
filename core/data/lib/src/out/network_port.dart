@@ -1,10 +1,16 @@
 import 'package:domain/domain.dart';
 
 abstract class NetworkPort {
-  Future<Either<NetworkError, Cart>> addtoCart(
+  Future<Either<NetworkError, bool>> addtoCart(
       {required AddtoCartRequest addtoCartRequest});
 
   Future<Either<NetworkError, Cart>> getCart({required int userId});
+
+  Future<Either<NetworkError, CartVoucher>> addVoucherinCart(
+      {required CartVoucherAddRequest cartVoucherAddRequest});
+  Future<Either<NetworkError, CartVoucherRemove>> removeVoucherfromCart(
+      {required CartVoucherRemoveRequest cartVoucherRemoveRequest});
+
 
   //User
 
@@ -41,12 +47,13 @@ abstract class NetworkPort {
 
   Future<Either<NetworkError, List<Product>>> getProducts();
 
+
   Future<Either<NetworkError, Cart>> removeFromCart(
       {required RemovefromCartRequest removefromCartRequest});
-
-  Future<Either<NetworkError, OrderItem>> checkout(
+  Future<Either<NetworkError, ChangeCartAddress>> changeCartAddress(
+      {required CartAddressChangeRequest cartAddressChangeRequest});
+  Future<Either<NetworkError, OrderItem>> checkoutCart(
       {required CheckoutRequest checkoutRequest});
-
   Future<Either<NetworkError, Product>> getProductDetail(
       {required int productId});
 
@@ -77,4 +84,20 @@ abstract class NetworkPort {
   //voucher
 
   Future<Either<NetworkError, List<Voucher>>> getVouchers();
+
+  /////order////////
+  Future<Either<NetworkError, List<OrderItem>>> getOrderList(
+      {required String userId});
+  Future<Either<NetworkError, OrderItem?>> getOrderDetail(
+      {required String? orderId});
+  Future<Either<NetworkError, OrderRating>> getOrderRating(
+      {required OrderRatingRequest orderRatingRequest});
+
+  Future<Either<NetworkError, OrderRepeat>> doOrderRepeat(
+      {required String? orderId});
+  Future<Either<NetworkError, OrderCancel>> orderCancel(
+      {required String? orderId});
+
+  Future<Either<NetworkError, List<OrderItem>>> getPending(
+      {required String orderId});
 }

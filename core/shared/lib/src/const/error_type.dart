@@ -21,6 +21,16 @@ enum ErrorType {
   //Cart
   cartIsEmpty,
 
+  //Voucher
+  voucherIsNotAvailable,
+
+  ////address////
+  addressIsEmpty,
+
+  ///order////
+  notRated,
+
+
   //User
   userIdNotFound,
 

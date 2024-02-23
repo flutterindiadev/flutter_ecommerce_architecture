@@ -42,14 +42,12 @@ class NetworkAdapter implements NetworkPort {
   }
 
   @override
-  Future<Either<NetworkError, Cart>> addtoCart(
+  Future<Either<NetworkError, bool>> addtoCart(
       {required AddtoCartRequest addtoCartRequest}) async {
     var response = await safeApiCall(apiService.addtoCart(addtoCartRequest));
     return response.fold(
       (l) => left(l),
-      (r) => Right(
-        r.data.transform(),
-      ),
+      (r) => Right(true),
     );
   }
 
@@ -160,7 +158,7 @@ class NetworkAdapter implements NetworkPort {
   }
 
   @override
-  Future<Either<NetworkError, OrderItem>> checkout(
+  Future<Either<NetworkError, OrderItem>> checkoutCart(
       {required CheckoutRequest checkoutRequest}) async {
     var response = await safeApiCall(apiService.checkOutCart(checkoutRequest));
 
@@ -244,5 +242,101 @@ class NetworkAdapter implements NetworkPort {
     var response = await safeApiCall(apiService.getPromotions());
 
     return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
+  }
+
+  @override
+  Future<Either<NetworkError, ChangeCartAddress>> changeCartAddress(
+      {required CartAddressChangeRequest cartAddressChangeRequest}) async {
+    var response = await safeApiCall(
+        apiService.changeCartAddress(cartAddressChangeRequest));
+
+    return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
+  }
+
+  @override
+  Future<Either<NetworkError, CartVoucher>> addVoucherinCart(
+      {required CartVoucherAddRequest cartVoucherAddRequest}) async {
+    var response =
+        await safeApiCall(apiService.addVouchertoCart(cartVoucherAddRequest));
+
+    return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
+  }
+
+  @override
+  Future<Either<NetworkError, CartVoucherRemove>> removeVoucherfromCart(
+      {required CartVoucherRemoveRequest cartVoucherRemoveRequest}) async {
+    var response = await safeApiCall(
+        apiService.removeVoucherFromCart(cartVoucherRemoveRequest));
+
+    return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
+  }
+
+  @override
+  Future<Either<NetworkError, List<OrderItem>>> getOrderList(
+      {required String userId}) async {
+    var response = await safeApiCall(apiService.getOrderList());
+
+    return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
+  }
+
+  @override
+  Future<Either<NetworkError, OrderItem?>> getOrderDetail(
+      {required String? orderId}) async {
+    var response = await safeApiCall(apiService.getOrderDetail());
+    return response.fold(
+      (l) => Left(l),
+      (r) => Right(
+        r.data.transform(),
+      ),
+    );
+  }
+
+  @override
+  Future<Either<NetworkError, OrderRating>> getOrderRating(
+      {required OrderRatingRequest orderRatingRequest}) async {
+    var response =
+        await safeApiCall(apiService.getOrderRating(orderRatingRequest));
+    return response.fold(
+      (l) => Left(l),
+      (r) => Right(
+        r.data.transform(),
+      ),
+    );
+  }
+
+  @override
+  Future<Either<NetworkError, OrderRepeat>> doOrderRepeat(
+      {required String? orderId}) async {
+    var response = await safeApiCall(apiService.doOrderRepeat(orderId));
+    return response.fold(
+      (l) => Left(l),
+      (r) => Right(
+        r.data.transform(),
+      ),
+    );
+  }
+
+  @override
+  Future<Either<NetworkError, OrderCancel>> orderCancel(
+      {required String? orderId}) async {
+    var response = await safeApiCall(apiService.orderCancel(orderId));
+    return response.fold(
+      (l) => Left(l),
+      (r) => Right(
+        r.data.transform(),
+      ),
+    );
+  }
+
+  @override
+  Future<Either<NetworkError, List<OrderItem>>> getPending(
+      {required String orderId}) async {
+    var response = await safeApiCall(apiService.getPendingOrderList(orderId));
+    return response.fold(
+      (l) => Left(l),
+      (r) => Right(
+        r.data.transform(),
+      ),
+    );
   }
 }

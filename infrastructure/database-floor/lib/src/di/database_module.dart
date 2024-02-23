@@ -7,7 +7,6 @@ import 'package:injectable/injectable.dart';
 import '../database_config.dart';
 import '../database_migration.dart';
 
-
 @module
 abstract class DataBaseModule {
   @preResolve

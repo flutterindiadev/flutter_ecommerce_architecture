@@ -8,11 +8,13 @@ class LogoutUseCase
   LogoutUseCase({required this.userRepository});
 
   @override
-  Future<Either<BaseError, Logout>> execute({required LogoutUseCaseParams params}) {
+  Future<Either<BaseError, Logout>> execute(
+      {required LogoutUseCaseParams params}) {
     return userRepository.logout(params.logoutRequest);
   }
 }
-class LogoutUseCaseParams extends Params{
+
+class LogoutUseCaseParams extends Params {
   LogoutRequest logoutRequest;
 
   LogoutUseCaseParams(this.logoutRequest);

@@ -14,7 +14,7 @@ export 'src/repository/user_repository.dart';
 
 export 'src/repository/cart_repository.dart';
 export 'src/repository/voucher_repository.dart';
-
+export 'src/repository/order_repository.dart';
 //use-cases
 export 'src/usecase/base/params.dart';
 export 'src/usecase/products/get_products_usecase.dart';

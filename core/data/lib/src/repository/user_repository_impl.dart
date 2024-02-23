@@ -45,10 +45,15 @@ class UserRepositoryImpl extends UserRepository {
     return networkPort.userExists(email: email);
   }
 
+
   @override
   Future<Either<NetworkError, List<Product>>> getUserFavoriteProducts(
       {required int userId}) {
     return networkPort.getUserFavoriteProducts(userId: userId);
+  }
+  @override
+  Future<Either<NetworkError, List<OrderItem>>> getOrderList(String userId) {
+    return networkPort.getOrderList(userId: userId);
   }
 
   @override

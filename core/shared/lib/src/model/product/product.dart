@@ -17,6 +17,5 @@ class Product {
       required this.price,
       required this.category,
       this.discount,
-        required this.currencyId});
-
+      required this.currencyId});
 }

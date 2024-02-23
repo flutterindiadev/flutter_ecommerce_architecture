@@ -17,5 +17,4 @@ class AppPersistenceAdapter implements DatabasePort {
 
     return response.fold((l) => Left(l), (r) => right(r));
   }
-
 }
