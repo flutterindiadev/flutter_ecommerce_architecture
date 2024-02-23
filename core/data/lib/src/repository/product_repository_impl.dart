@@ -9,12 +9,12 @@ class ProductRepositoryImpl extends ProductRepository {
 
   ProductRepositoryImpl(this.databaseProvider, this.networkPort);
   @override
-  Future<Either<NetworkError, List<Product>>> getProducts() async {
+  Future<Either<NetworkError, List<Product>>> getProducts() {
     return networkPort.getProducts();
   }
 
   @override
-  Future<Either<NetworkError, Product>> getProductDetail(int productId) async {
+  Future<Either<NetworkError, Product>> getProductDetail(int productId) {
     return networkPort.getProductDetail(productId: productId);
   }
 
@@ -24,4 +24,19 @@ class ProductRepositoryImpl extends ProductRepository {
     return networkPort.getProductCategory();
   }
 
+  @override
+  Future<Either<NetworkError, List<Product>>> searchProducts(
+      String productName) {
+    return networkPort.searchProducts(productName: productName);
+  }
+
+  @override
+  Future<Either<NetworkError, List<Product>>> selectCategory(String category) {
+    return networkPort.selectCategory(category: category);
+  }
+
+  @override
+  Future<Either<NetworkError, List<Promotion>>> getPromotions() {
+    return networkPort.getPromotions();
+  }
 }

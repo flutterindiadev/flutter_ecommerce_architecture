@@ -31,15 +31,48 @@ class UserRepositoryImpl extends UserRepository {
   }
 
   @override
-
   Future<Either<NetworkError, Logout>> logout(LogoutRequest logoutRequest) {
     return networkPort.logout(logoutRequest: logoutRequest);
   }
+
+  @override
   Future<Either<NetworkError, bool>> verifyotp(int otp) {
     return networkPort.verifyotp(otp: otp);
+  }
 
+  @override
+  Future<Either<NetworkError, bool>> userExists({required String email}) {
+    return networkPort.userExists(email: email);
+  }
+
+  @override
+  Future<Either<NetworkError, List<Product>>> getUserFavoriteProducts(
+      {required int userId}) {
+    return networkPort.getUserFavoriteProducts(userId: userId);
+  }
+
+  @override
+  Future<Either<NetworkError, UserProfile>> getUserProfile(
+      {required int userId}) {
+    return networkPort.getUserProfile(userId: userId);
+  }
+
+  @override
+  Future<Either<NetworkError, bool>> changePassword(
+      {required ChangePasswordRequest changePasswordRequest}) {
+    return networkPort.changePassword(
+        changePasswordRequest: changePasswordRequest);
+  }
+
+  @override
+  Future<Either<NetworkError, UserSettings>> getUserSettings(
+      {required int userId}) {
+    return networkPort.getUserSettings(userId: userId);
+  }
+
+  @override
+  Future<Either<NetworkError, UserProfile>> updateUserProfile(
+      {required UserProfile userProfile}) {
+    return networkPort.updateUserProfile(userProfile: userProfile);
   }
 }
-
-
-

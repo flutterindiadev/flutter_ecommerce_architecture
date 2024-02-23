@@ -27,7 +27,7 @@ class NetworkAdapter implements NetworkPort {
   @override
   Future<Either<NetworkError, void>> forgotPassword() async {
     var response = await safeApiCall(apiService.forgotPassword());
-    return response.fold((l) => Left(l), (r) => Right(r));
+    return response.fold((l) => Left(l), (r) => Right(r.data));
   }
 
   @override
@@ -99,6 +99,7 @@ class NetworkAdapter implements NetworkPort {
     );
   }
 
+  @override
   Future<Either<NetworkError, Product>> getProductDetail(
       {required int productId}) async {
     var response = await safeApiCall(apiService.getProductDetail(productId));
@@ -162,6 +163,85 @@ class NetworkAdapter implements NetworkPort {
   Future<Either<NetworkError, OrderItem>> checkout(
       {required CheckoutRequest checkoutRequest}) async {
     var response = await safeApiCall(apiService.checkOutCart(checkoutRequest));
+
+    return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
+  }
+
+  @override
+  Future<Either<NetworkError, bool>> userExists({required String email}) async {
+    var response = await safeApiCall(apiService.userExists(email));
+
+    return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
+  }
+
+  @override
+  Future<Either<NetworkError, List<Product>>> searchProducts(
+      {required String productName}) async {
+    var response = await safeApiCall(apiService.searchProducts(productName));
+
+    return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
+  }
+
+  @override
+  Future<Either<NetworkError, Address>> editAddress(
+      {required Address address}) async {
+    var response = await safeApiCall(apiService.editAddress(address));
+
+    return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
+  }
+
+  @override
+  Future<Either<NetworkError, List<Product>>> getUserFavoriteProducts(
+      {required int userId}) async {
+    var response =
+        await safeApiCall(apiService.getUserFavoriteProducts(userId));
+
+    return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
+  }
+
+  @override
+  Future<Either<NetworkError, UserProfile>> getUserProfile(
+      {required int userId}) async {
+    var response = await safeApiCall(apiService.getUserProfile(userId));
+
+    return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
+  }
+
+  @override
+  Future<Either<NetworkError, List<Product>>> selectCategory(
+      {required String category}) async {
+    var response = await safeApiCall(apiService.selectCategory());
+
+    return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
+  }
+
+  @override
+  Future<Either<NetworkError, bool>> changePassword(
+      {required ChangePasswordRequest changePasswordRequest}) async {
+    var response =
+        await safeApiCall(apiService.changePassword(changePasswordRequest));
+
+    return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
+  }
+
+  @override
+  Future<Either<NetworkError, UserSettings>> getUserSettings(
+      {required int userId}) async {
+    var response = await safeApiCall(apiService.getUserSettings(userId));
+    return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
+  }
+
+  @override
+  Future<Either<NetworkError, UserProfile>> updateUserProfile(
+      {required UserProfile userProfile}) async {
+    var response = await safeApiCall(apiService.updateUserProfile(userProfile));
+
+    return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
+  }
+
+  @override
+  Future<Either<NetworkError, List<Promotion>>> getPromotions() async {
+    var response = await safeApiCall(apiService.getPromotions());
 
     return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
   }

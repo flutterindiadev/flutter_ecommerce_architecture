@@ -1,6 +1,8 @@
 import 'package:data/data.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+part 'user_entity.g.dart';
+
 @JsonSerializable()
 class UserEntity implements BaseLayerDataTransformer<UserEntity, User> {
   @JsonKey(name: 'id')
@@ -17,6 +19,11 @@ class UserEntity implements BaseLayerDataTransformer<UserEntity, User> {
       required this.email,
       required this.mobile,
       required this.token});
+
+  factory UserEntity.fromJson(Map<String, dynamic> json) =>
+      _$UserEntityFromJson(json);
+
+  Map<String, dynamic> toJson() => _$UserEntityToJson(this);
 
   @override
   UserEntity restore(data) {

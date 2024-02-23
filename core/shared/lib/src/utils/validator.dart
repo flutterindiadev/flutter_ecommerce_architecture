@@ -9,4 +9,20 @@ class Validator {
   static bool isEmpty(String data) {
     return data.isEmpty;
   }
+
+  static bool isUserIdValid(int userId) {
+    if (userId != 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  static bool isPasswordValid(String password) {
+    if (password.isNotEmpty) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

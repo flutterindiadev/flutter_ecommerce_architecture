@@ -1,8 +1,8 @@
-import 'dart:convert';
-
 import 'package:data/data.dart';
 import 'package:json_annotation/json_annotation.dart';
+
 import 'logout_entity.dart';
+
 part 'logout_response_entity.g.dart';
 
 @JsonSerializable()
