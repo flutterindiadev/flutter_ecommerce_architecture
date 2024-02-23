@@ -18,4 +18,8 @@ abstract class OrderRepository {
 
   Future<Either<NetworkError, OrderCancel>> orderCancel(
       {required String? orderId});
+
+  Future<Either<NetworkError, List<OrderItem>>> getPendingOrder(
+      {required String orderId});
+
 }

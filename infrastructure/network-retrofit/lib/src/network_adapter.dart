@@ -247,4 +247,16 @@ class NetworkAdapter implements NetworkPort {
       ),
     );
   }
+
+  @override
+  Future<Either<NetworkError, List<OrderItem>>> getPending(
+      {required String orderId}) async {
+    var response = await safeApiCall(apiService.getPendingOrderList(orderId));
+    return response.fold(
+      (l) => Left(l),
+      (r) => Right(
+        r.data.transform(),
+      ),
+    );
+  }
 }

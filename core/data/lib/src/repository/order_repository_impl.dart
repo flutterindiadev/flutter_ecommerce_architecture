@@ -35,4 +35,9 @@ class OrderRepositoryImpl extends OrderRepository {
       {required String? orderId}) {
     return networkPort.orderCancel(orderId: orderId);
   }
+
+  @override
+  Future<Either<NetworkError, List<OrderItem>>> getPendingOrder({required String orderId}) {
+   return networkPort.getPending(orderId: orderId);
+  }
 }

@@ -66,4 +66,7 @@ abstract class NetworkPort {
       {required String? orderId});
   Future<Either<NetworkError, OrderCancel>> orderCancel(
       {required String? orderId});
+
+  Future<Either<NetworkError, List<OrderItem>>> getPending(
+      {required String orderId});
 }

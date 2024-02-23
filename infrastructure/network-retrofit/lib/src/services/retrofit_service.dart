@@ -131,4 +131,9 @@ abstract class RetrofitService {
   @POST("getorderrepeat")
   Future<HttpResponse<OrderRepeatResponseEntity>> doOrderRepeat(
       @Body() String? orderId);
+
+  @POST("getpendingOrderList")
+  Future<HttpResponse<OrderItemsResponseEntity>> getPendingOrderList(
+      @Body() String? orderId);
+
 }
