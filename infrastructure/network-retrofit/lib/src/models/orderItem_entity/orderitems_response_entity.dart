@@ -2,7 +2,7 @@ import 'package:data/data.dart';
 import 'package:network_retrofit/src/models/address/address_entity.dart';
 import 'package:network_retrofit/src/models/product/product_entity.dart';
 
-import 'orderItem_entity.dart';
+import 'order_item_entity.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'orderitems_response_entity.g.dart';
 

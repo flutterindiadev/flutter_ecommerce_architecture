@@ -12,7 +12,7 @@ export 'src/repository/product_repository.dart';
 //repository contracts
 export 'src/repository/user_repository.dart';
 
-export 'src/repository/cartRepository.dart';
+export 'src/repository/cart_repository.dart';
 export 'src/repository/voucher_repository.dart';
 export 'src/repository/order_repository.dart';
 //use-cases

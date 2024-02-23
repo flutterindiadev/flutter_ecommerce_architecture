@@ -28,5 +28,15 @@ enum ErrorType {
   addressIsEmpty,
 
   ///order////
-  notRated
+  notRated,
+
+
+  //User
+  userIdNotFound,
+
+  //category
+  blankCategory,
+
+  //Address
+  invalidAddress
 }

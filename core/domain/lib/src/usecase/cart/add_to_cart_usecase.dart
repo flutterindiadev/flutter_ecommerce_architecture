@@ -1,5 +1,4 @@
 import '../../../domain.dart';
-import '../../repository/cartRepository.dart';
 import '../base/base_usecase.dart';
 
 class AddToCartUseCase

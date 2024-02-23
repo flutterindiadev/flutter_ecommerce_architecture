@@ -1,5 +1,4 @@
 // required package imports
-import 'package:data/data.dart';
 import 'package:database_floor/src/database_config.dart';
 import 'package:floor/floor.dart';
 

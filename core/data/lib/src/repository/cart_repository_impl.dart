@@ -1,6 +1,4 @@
 import 'package:domain/domain.dart';
-import 'package:domain/src/usecase/cart/add_to_cart_usecase.dart';
-import 'package:domain/src/usecase/cart/remove_from_cart_usecase.dart';
 
 import '../../data.dart';
 

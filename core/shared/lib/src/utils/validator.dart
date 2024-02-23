@@ -10,6 +10,22 @@ class Validator {
     return data.isEmpty;
   }
 
+  static bool isUserIdValid(int userId) {
+    if (userId != 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  static bool isPasswordValid(String password) {
+    if (password.isNotEmpty) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 
   /////adresss//////
   static bool isPinCodecorrect(String pincode) {

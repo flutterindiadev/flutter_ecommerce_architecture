@@ -1,5 +1,4 @@
 import 'package:domain/domain.dart';
-import 'package:domain/src/repository/address_repository.dart';
 import 'package:domain/src/usecase/base/base_usecase.dart';
 
 class GetAddressesUsecase

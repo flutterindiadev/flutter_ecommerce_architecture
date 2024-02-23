@@ -1,9 +1,10 @@
 import 'package:data/data.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:network_retrofit/src/models/address/address_entity.dart';
-import 'package:network_retrofit/src/models/orderItem_entity/orderItem_entity.dart';
+import 'package:network_retrofit/src/models/orderItem_entity/order_item_entity.dart';
 import 'package:network_retrofit/src/models/product/product_entity.dart';
-part 'orderItem_Response_Entity.g.dart';
+
+part 'order_item_response_entity.g.dart';
 
 @JsonSerializable()
 class OrderItemResponseEntity
