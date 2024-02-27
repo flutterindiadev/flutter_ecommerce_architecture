@@ -4,10 +4,10 @@ import '../out/database_port.dart';
 import '../out/network_port.dart';
 
 class UserRepositoryImpl extends UserRepository {
-  final DatabasePort databaseProvider;
+  final DatabasePort databasePort;
   final NetworkPort networkPort;
 
-  UserRepositoryImpl(this.databaseProvider, this.networkPort);
+  UserRepositoryImpl(this.databasePort, this.networkPort);
 
   @override
   Future<Either<NetworkError, User>> loginWithEmail(LoginRequest loginRequest) {
@@ -16,7 +16,7 @@ class UserRepositoryImpl extends UserRepository {
 
   @override
   Future<Either<DatabaseError, void>> saveUser(User user) {
-    return databaseProvider.saveUser(user);
+    return databasePort.saveUser(user);
   }
 
   @override
@@ -45,12 +45,12 @@ class UserRepositoryImpl extends UserRepository {
     return networkPort.userExists(email: email);
   }
 
-
   @override
   Future<Either<NetworkError, List<Product>>> getUserFavoriteProducts(
       {required int userId}) {
     return networkPort.getUserFavoriteProducts(userId: userId);
   }
+
   @override
   Future<Either<NetworkError, List<OrderItem>>> getOrderList(String userId) {
     return networkPort.getOrderList(userId: userId);

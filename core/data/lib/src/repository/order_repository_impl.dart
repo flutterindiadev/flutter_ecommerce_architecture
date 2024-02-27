@@ -2,9 +2,9 @@ import 'package:data/data.dart';
 import 'package:domain/domain.dart';
 
 class OrderRepositoryImpl extends OrderRepository {
-  NetworkPort networkPort;
+  final NetworkPort networkPort;
 
-  OrderRepositoryImpl({required this.networkPort});
+  OrderRepositoryImpl(this.networkPort);
 
   @override
   Future<Either<NetworkError, List<OrderItem>>> getOrderList(
@@ -37,7 +37,8 @@ class OrderRepositoryImpl extends OrderRepository {
   }
 
   @override
-  Future<Either<NetworkError, List<OrderItem>>> getPendingOrder({required String orderId}) {
-   return networkPort.getPending(orderId: orderId);
+  Future<Either<NetworkError, List<OrderItem>>> getPendingOrder(
+      {required String orderId}) {
+    return networkPort.getPending(orderId: orderId);
   }
 }
