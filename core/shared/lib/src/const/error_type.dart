@@ -30,7 +30,6 @@ enum ErrorType {
   ///order////
   notRated,
 
-
   //User
   userIdNotFound,
 
@@ -38,5 +37,13 @@ enum ErrorType {
   blankCategory,
 
   //Address
-  invalidAddress
+  invalidAddress,
+
+  //Location
+  locationPermissionError,
+  locationNotEnabledError,
+
+  //Permission
+  permissionDenied,
+  permissionPermantelyDenied
 }

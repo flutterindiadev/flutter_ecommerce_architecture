@@ -12,6 +12,7 @@ export 'src/repository/address_repository.dart';
 export 'src/repository/cart_repository.dart';
 export 'src/repository/location_repository.dart';
 export 'src/repository/order_repository.dart';
+export 'src/repository/permission_repository.dart';
 export 'src/repository/product_repository.dart';
 export 'src/repository/user_repository.dart';
 export 'src/repository/voucher_repository.dart';

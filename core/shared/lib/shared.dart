@@ -8,6 +8,7 @@ export 'src/const/error_type.dart';
 export 'src/model/address.dart';
 //models
 export 'src/model/app_error.dart';
+export 'src/model/app_permissions.dart';
 export 'src/model/cart/cart.dart';
 export 'src/model/cart/cart_voucher.dart';
 export 'src/model/cart/cartvoucher_remove.dart';
@@ -17,6 +18,7 @@ export 'src/model/error/base_error.dart';
 export 'src/model/error/database_error.dart';
 export 'src/model/error/location_error.dart';
 export 'src/model/error/network_error.dart';
+export 'src/model/error/permission_error.dart';
 export 'src/model/error_info.dart';
 export 'src/model/location.dart';
 export 'src/model/login_request.dart';

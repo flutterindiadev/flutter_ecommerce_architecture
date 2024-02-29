@@ -9,5 +9,6 @@ export 'src/di/data_dependency_configurator.dart';
 export 'src/out/database_port.dart';
 export 'src/out/location_port.dart';
 export 'src/out/network_port.dart';
+export 'src/out/permission_port.dart';
 
 // TODO: Export any libraries intended for clients of this package.
