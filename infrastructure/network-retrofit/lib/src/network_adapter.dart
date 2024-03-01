@@ -339,4 +339,13 @@ class NetworkAdapter implements NetworkPort {
       ),
     );
   }
+
+  @override
+  Future<Either<NetworkError, OrderStatus>> getOrderStatus(
+      {required String orderIdorTrackingId}) async {
+    var response =
+        await safeApiCall(apiService.getOrderStatus(orderIdorTrackingId));
+
+    return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
+  }
 }

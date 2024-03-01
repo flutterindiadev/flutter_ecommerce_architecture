@@ -98,4 +98,7 @@ abstract class NetworkPort {
 
   Future<Either<NetworkError, List<OrderItem>>> getPending(
       {required String orderId});
+
+  Future<Either<NetworkError, OrderStatus>> getOrderStatus(
+      {required String orderIdorTrackingId});
 }

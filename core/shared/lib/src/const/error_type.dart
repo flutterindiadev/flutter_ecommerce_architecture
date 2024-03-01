@@ -42,6 +42,7 @@ enum ErrorType {
   //Location
   locationPermissionError,
   locationNotEnabledError,
+  invalidLatLong,
 
   //Permission
   permissionDenied,

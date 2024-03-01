@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:data/data.dart';
 
-Future<Either<PermissionError, T>> safeLocationCall<T>(
+Future<Either<PermissionError, T>> safePermissionCall<T>(
     Future<T> permissionRequest) async {
   try {
     final originalResponse = await permissionRequest;

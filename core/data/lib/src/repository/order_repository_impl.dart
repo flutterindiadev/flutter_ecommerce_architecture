@@ -41,4 +41,10 @@ class OrderRepositoryImpl extends OrderRepository {
       {required String orderId}) {
     return networkPort.getPending(orderId: orderId);
   }
+
+  @override
+  Future<Either<NetworkError, OrderStatus>> getOrderStatus(
+      {required String orderIdorTrackingId}) {
+    return networkPort.getOrderStatus(orderIdorTrackingId: orderIdorTrackingId);
+  }
 }

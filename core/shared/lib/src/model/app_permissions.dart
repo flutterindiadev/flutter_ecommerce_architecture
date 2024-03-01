@@ -1,5 +1,7 @@
 class AppPermission {
-  bool isLocationPermissionGranted;
+  bool? isLocationPermissionGranted;
+  bool? isNotificationPermissionGranted;
 
-  AppPermission({required this.isLocationPermissionGranted});
+  AppPermission(
+      {this.isLocationPermissionGranted, this.isNotificationPermissionGranted});
 }

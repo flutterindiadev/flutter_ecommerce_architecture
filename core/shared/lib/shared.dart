@@ -29,6 +29,7 @@ export 'src/model/order/order_item.dart';
 //////order//////////
 export 'src/model/order/order_rating.dart';
 export 'src/model/order/order_repeat.dart';
+export 'src/model/order/order_status.dart';
 export 'src/model/product/currency.dart';
 export 'src/model/product/product.dart';
 export 'src/model/product/product_category.dart';

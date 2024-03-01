@@ -10,4 +10,19 @@ class PermissionRepositoryImpl extends PermissionRepository {
   Future<Either<PermissionError, AppPermission>> getLocationPermission() {
     return permissionPort.requestLocationPermission();
   }
+
+  @override
+  Future<Either<PermissionError, bool>> checkLocationPermission() {
+    return permissionPort.checkLocationPermission();
+  }
+
+  @override
+  Future<Either<PermissionError, bool>> checkLocationEnabledStatus() {
+    return permissionPort.checkLocationEnabledStatus();
+  }
+
+  @override
+  Future<Either<PermissionError, AppPermission>> getNotificationPermission() {
+    return permissionPort.getNotificationPermission();
+  }
 }

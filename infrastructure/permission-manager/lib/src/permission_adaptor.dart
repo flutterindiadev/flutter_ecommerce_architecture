@@ -7,9 +7,36 @@ class PermissionAdaptor implements PermissionPort {
   @override
   Future<Either<PermissionError, AppPermission>>
       requestLocationPermission() async {
-    final response = await safeLocationCall(Permission.location.request());
+    final response = await safePermissionCall(Permission.location.request());
 
     return response.fold((l) => Left(l),
-        (r) => Right(AppPermission(isLocationPermissionGranted: true)));
+        (r) => Right(AppPermission(isLocationPermissionGranted: r.isGranted)));
+  }
+
+  @override
+  Future<Either<PermissionError, bool>> checkLocationPermission() async {
+    final response = await safePermissionCall(Permission.location.status);
+
+    return response.fold((l) => Left(l), (r) => Right(r.isGranted));
+  }
+
+  @override
+  Future<Either<PermissionError, bool>> checkLocationEnabledStatus() async {
+    final response =
+        await safePermissionCall(Permission.location.serviceStatus);
+
+    return response.fold((l) => Left(l), (r) => Right(r.isEnabled));
+  }
+
+  @override
+  Future<Either<PermissionError, AppPermission>>
+      getNotificationPermission() async {
+    final response =
+        await safePermissionCall(Permission.notification.request());
+
+    return response.fold(
+        (l) => Left(l),
+        (r) =>
+            Right(AppPermission(isNotificationPermissionGranted: r.isGranted)));
   }
 }
