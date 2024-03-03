@@ -40,6 +40,10 @@ dependencies:
     path: ../infrastructure/database-floor/
   network_retrofit:
     path: ../infrastructure/network-retrofit/
+  location_geolocator: 
+    path: ../infrastructure/location-geolocator/
+  permission_manager:
+    path: ../infrastructure/permission-manager/
   data:
     path: ../core/data/
   domain:

@@ -1,19 +1,20 @@
 import 'package:domain/domain.dart';
 import 'package:domain/src/usecase/base/base_usecase.dart';
 
-class RequestLocationPermission extends BaseUseCase<BaseError,
-    RequestLocationPermissionParams, AppPermission> {
+class RequestLocationPermissionUsecase extends BaseUseCase<BaseError,
+    RequestLocationPermissionUsecaseParams, AppPermission> {
   PermissionRepository permissionRepository;
 
-  RequestLocationPermission(this.permissionRepository);
+  RequestLocationPermissionUsecase(this.permissionRepository);
+
   @override
   Future<Either<BaseError, AppPermission>> execute(
-      {required RequestLocationPermissionParams params}) {
+      {required RequestLocationPermissionUsecaseParams params}) {
     return permissionRepository.getLocationPermission();
   }
 }
 
-class RequestLocationPermissionParams extends Params {
+class RequestLocationPermissionUsecaseParams extends Params {
   @override
   Either<AppError, bool> verify() {
     return Right(true);

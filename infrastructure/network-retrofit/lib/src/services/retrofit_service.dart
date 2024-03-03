@@ -1,6 +1,5 @@
 import 'package:data/data.dart';
 import 'package:dio/dio.dart';
-import 'package:network_retrofit/src/models/CartVoucher/cart_voucher_add_entity.dart';
 import 'package:network_retrofit/src/models/Order_Repeat/order_repeat_response_entity.dart';
 import 'package:network_retrofit/src/models/address/address_entity.dart';
 import 'package:network_retrofit/src/models/address/addresses_response_entity.dart';
@@ -85,7 +84,7 @@ abstract class RetrofitService {
   );
 
   @POST("addvouchertoCart")
-  Future<HttpResponse<CartVoucherEntity>> addVouchertoCart(
+  Future<HttpResponse> addVouchertoCart(
     @Body() CartVoucherAddRequest cartVoucherAddRequest,
   );
 

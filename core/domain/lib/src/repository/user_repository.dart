@@ -24,4 +24,6 @@ abstract class UserRepository {
 
   Future<Either<NetworkError, UserProfile>> updateUserProfile(
       {required UserProfile userProfile});
+
+  Future<Either<NetworkError, List<OrderItem>>> getOrderList(String userId);
 }

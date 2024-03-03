@@ -88,7 +88,7 @@ class NetworkAdapter implements NetworkPort {
   }
 
   @override
-  Future<Either<NetworkError, OrderItem>> checkOutCart(
+  Future<Either<NetworkError, OrderItem>> checkoutCart(
       {required CheckoutRequest checkoutRequest}) async {
     var response = await safeApiCall(apiService.checkOutCart(checkoutRequest));
     return response.fold(
@@ -153,14 +153,6 @@ class NetworkAdapter implements NetworkPort {
   @override
   Future<Either<NetworkError, bool>> verifyotp({required int otp}) async {
     var response = await safeApiCall(apiService.verifyotp(otp));
-
-    return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
-  }
-
-  @override
-  Future<Either<NetworkError, OrderItem>> checkoutCart(
-      {required CheckoutRequest checkoutRequest}) async {
-    var response = await safeApiCall(apiService.checkOutCart(checkoutRequest));
 
     return response.fold((l) => Left(l), (r) => Right(r.data.transform()));
   }

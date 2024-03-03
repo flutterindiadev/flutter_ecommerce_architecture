@@ -28,6 +28,8 @@ class SplashPageState extends AppBasePageState<SplashViewModel, SplashPage> {
 
   @override
   Widget buildView(BuildContext context, SplashViewModel model) {
-    return SplashPageView(provideBase());
+    return SplashPageView(
+      provideBase(),
+    );
   }
 }

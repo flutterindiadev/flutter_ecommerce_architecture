@@ -11,9 +11,9 @@ class AppPersistenceAdapter implements DatabasePort {
 
   @override
   Future<Either<DatabaseError, void>> saveUser(User user) async {
-    UserDBEntity _dbEntity = UserDBEntity();
+    UserDBEntity dbEntity = UserDBEntity();
     final response =
-        await safeDbCall(appDatabase.userDao.insertUser(_dbEntity));
+        await safeDbCall(appDatabase.userDao.insertUser(dbEntity));
 
     return response.fold((l) => Left(l), (r) => right(r));
   }

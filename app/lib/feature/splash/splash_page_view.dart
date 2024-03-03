@@ -14,17 +14,30 @@ class SplashPageView extends BasePageViewWidget<SplashViewModel> {
       height: double.maxFinite,
       color: Colors.grey,
       alignment: Alignment.center,
-      child: Center(
-        child: SizedBox(
-          width: 100,
-          height: 100,
-          child: ElevatedButton(
-            onPressed: () {
-              model.test();
-            },
-            child: const Text("test me"),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
+            child: SizedBox(
+              width: 100,
+              height: 100,
+              child: ElevatedButton(
+                onPressed: () {
+                  model.getLocation();
+                },
+                child: const Text("test me"),
+              ),
+            ),
           ),
-        ),
+          const SizedBox(
+            height: 20,
+          ),
+          ElevatedButton(
+              onPressed: () {
+                model.getLocationPermission();
+              },
+              child: Text('Get Location Permission'))
+        ],
       ),
     );
   }

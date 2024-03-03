@@ -3,7 +3,7 @@ import 'package:domain/src/usecase/base/base_usecase.dart';
 
 class ChangePasswordUsecase
     extends BaseUseCase<BaseError, ChangePasswordUsecaseParams, bool> {
-  UserRepository _userRepository;
+  final UserRepository _userRepository;
 
   ChangePasswordUsecase(this._userRepository);
 

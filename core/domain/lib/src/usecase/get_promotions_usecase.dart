@@ -3,7 +3,7 @@ import 'package:domain/src/usecase/base/base_usecase.dart';
 
 class GetPromotionsUsecase extends BaseUseCase<BaseError,
     GetPromotionsUsecaseParams, List<Promotion>> {
-  ProductRepository _productRepository;
+  final ProductRepository _productRepository;
 
   GetPromotionsUsecase(this._productRepository);
 

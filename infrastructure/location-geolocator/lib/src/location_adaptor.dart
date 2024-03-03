@@ -3,12 +3,8 @@ import 'package:data/data.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:location_geolocator/src/utils/safe_location_call.dart';
 
-import 'services/location_service.dart';
-
 class LocationAdaptor implements LocationPort {
-  final LocationService locationService;
-
-  const LocationAdaptor(this.locationService);
+  const LocationAdaptor();
 
   @override
   Future<Either<LocationError, Location>> getCurrentLocation() async {

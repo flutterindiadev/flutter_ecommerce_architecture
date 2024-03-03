@@ -1,9 +1,12 @@
 import 'dart:async';
 
+import 'package:domain/domain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_errors/flutter_errors.dart';
 import 'package:injectable/injectable.dart';
 import 'package:statemanagement_riverpod/statemanagement_riverpod.dart';
+
+import '../../utils/request_manager.dart';
 
 @injectable
 class SplashViewModel extends BasePageViewModel {
@@ -11,9 +14,15 @@ class SplashViewModel extends BasePageViewModel {
   final StreamController<bool> _navigateToDashboardController =
       StreamController();
   final FlutterExceptionHandlerBinder exceptionHandlerBinder;
+
+  final GetLocationUsecase getLocationUsecase;
+
+  final RequestLocationPermissionUsecase requestLocationPermissionUsecase;
+
   late Timer future;
 
-  SplashViewModel(@factoryParam this.myBaseUrl, this.exceptionHandlerBinder) {
+  SplashViewModel(@factoryParam this.myBaseUrl, this.exceptionHandlerBinder,
+      this.getLocationUsecase, this.requestLocationPermissionUsecase) {
     future = Timer(const Duration(seconds: 2), () async {
       _navigateToDashboardController.sink.add(true);
       _navigateToDashboardController.close();
@@ -61,5 +70,39 @@ class SplashViewModel extends BasePageViewModel {
     future.cancel();
     _navigateToDashboardController.close();
     super.dispose();
+  }
+
+  void getLocation() {
+    exceptionHandlerBinder.handle(block: () {
+      print("exceptionHandlerBinder start");
+      GetLocationUsecaseParams getLocationUsecaseParams =
+          GetLocationUsecaseParams();
+
+      RequestManager<Location>(getLocationUsecaseParams,
+              createCall: () =>
+                  getLocationUsecase.execute(params: getLocationUsecaseParams))
+          .asFlow()
+          .listen((event) {
+        debugPrint('Latitude =====>' "${event.data?.lattitude}");
+      });
+    }).execute();
+  }
+
+  void getLocationPermission() {
+    exceptionHandlerBinder.handle(block: () {
+      print("exceptionHandlerBinder start");
+      RequestLocationPermissionUsecaseParams
+          requestLocationPermissionUsecaseParams =
+          RequestLocationPermissionUsecaseParams();
+
+      RequestManager<AppPermission>(requestLocationPermissionUsecaseParams,
+              createCall: () => requestLocationPermissionUsecase.execute(
+                  params: requestLocationPermissionUsecaseParams))
+          .asFlow()
+          .listen((event) {
+        debugPrint(
+            "Location Permission Granted=====> ${event.data?.isLocationPermissionGranted}");
+      });
+    }).execute();
   }
 }

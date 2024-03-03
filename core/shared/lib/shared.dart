@@ -35,7 +35,7 @@ export 'src/model/product/product.dart';
 export 'src/model/product/product_category.dart';
 export 'src/model/promotion.dart';
 export 'src/model/request/add_to_cart_request.dart';
-export 'src/model/request/cart_Voucher_add_request.dart';
+export 'src/model/request/cart_voucher_add_request.dart';
 export 'src/model/request/cart_address_change_request.dart';
 export 'src/model/request/cart_voucher_remove_request.dart';
 export 'src/model/request/checkout_request.dart';

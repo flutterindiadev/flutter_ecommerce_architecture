@@ -3,7 +3,7 @@ import 'package:domain/src/usecase/base/base_usecase.dart';
 
 class UserSettingsUsecase
     extends BaseUseCase<BaseError, UserSettingsUsecaseParams, UserSettings> {
-  UserRepository _userRepository;
+  final UserRepository _userRepository;
 
   UserSettingsUsecase(this._userRepository);
 

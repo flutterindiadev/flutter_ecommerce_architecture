@@ -1,7 +1,6 @@
 import 'package:data/data.dart';
 import 'package:data/src/repository/address_repository_impl.dart';
 import 'package:data/src/repository/cart_repository_impl.dart';
-import 'package:data/src/repository/location_repository_impl.dart';
 import 'package:data/src/repository/order_repository_impl.dart';
 import 'package:data/src/repository/product_repository_impl.dart';
 import 'package:data/src/repository/user_repository_impl.dart';
@@ -45,5 +44,10 @@ abstract class DataModule {
   @lazySingleton
   VoucherRepository voucherRepository(NetworkPort networkPort) {
     return VoucherRepositoryImpl(networkPort);
+  }
+
+  @lazySingleton
+  PermissionRepository permissionRepository(PermissionPort permissionPort) {
+    return PermissionRepositoryImpl(permissionPort);
   }
 }

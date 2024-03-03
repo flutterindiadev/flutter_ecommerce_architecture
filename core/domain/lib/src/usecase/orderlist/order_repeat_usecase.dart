@@ -4,7 +4,7 @@ import '../base/base_usecase.dart';
 
 class OrderRepeatUsecase
     extends BaseUseCase<NetworkError, OrderRepeatUsecaseParam, OrderRepeat> {
-  OrderRepository _orderRepository;
+  final OrderRepository _orderRepository;
   OrderRepeatUsecase(this._orderRepository);
 
   @override
@@ -20,14 +20,15 @@ class OrderRepeatUsecaseParam extends Params {
 
   @override
   Either<AppError, bool> verify() {
-    if (Validator.isEmpty(orderId))
+    if (Validator.isEmpty(orderId)) {
       return Left(
         AppError(
             throwable: Exception(),
             error: ErrorInfo(message: ''),
             type: ErrorType.cartIsEmpty),
       );
-    else
-      return right(true);
+    } else {
+      return Right(true);
+    }
   }
 }
