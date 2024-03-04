@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import '../../domain.dart';
-import '../../domain.dart';
 
 abstract class OrderRepository {
   Future<Either<NetworkError, List<OrderItem>>> getOrderList(
@@ -22,4 +21,6 @@ abstract class OrderRepository {
   Future<Either<NetworkError, List<OrderItem>>> getPendingOrder(
       {required String orderId});
 
+  Future<Either<NetworkError, OrderStatus>> getOrderStatus(
+      {required String orderIdorTrackingId});
 }

@@ -1,6 +1,8 @@
 import 'package:data/data.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+part 'product_category_entity.g.dart';
+
 @JsonSerializable()
 class ProductCategoryEntity
     implements
@@ -16,6 +18,11 @@ class ProductCategoryEntity
 
   ProductCategoryEntity(
       {required this.id, required this.categoryName, required this.imageUrl});
+
+  factory ProductCategoryEntity.fromJson(Map<String, dynamic> json) =>
+      _$ProductCategoryEntityFromJson(json);
+
+  Map<String, dynamic> toJson() => _$ProductCategoryEntityToJson(this);
 
   @override
   ProductCategoryEntity restore(ProductCategory data) {

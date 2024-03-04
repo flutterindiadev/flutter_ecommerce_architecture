@@ -1,13 +1,11 @@
 import 'package:data/data.dart';
 import 'package:dio/dio.dart';
-import 'package:network_retrofit/src/models/CartVoucher/cart_voucher_add_entity.dart';
 import 'package:network_retrofit/src/models/Order_Repeat/order_repeat_response_entity.dart';
-import 'package:network_retrofit/src/models/cart_entity/cart_Response_Entity.dart';
 import 'package:network_retrofit/src/models/address/address_entity.dart';
 import 'package:network_retrofit/src/models/address/addresses_response_entity.dart';
+import 'package:network_retrofit/src/models/cart_entity/cart_Response_Entity.dart';
 import 'package:network_retrofit/src/models/changeCartAddress/change_cart_Address_entity.dart';
 import 'package:network_retrofit/src/models/order_rating/order_rating_response_entity.dart';
-import 'package:network_retrofit/src/models/cart_entity/cart_Response_Entity.dart';
 import 'package:network_retrofit/src/models/product/product_category_response_entity.dart';
 import 'package:network_retrofit/src/models/product/product_response_entity.dart';
 import 'package:network_retrofit/src/models/product/products_response_entity.dart';
@@ -17,12 +15,13 @@ import 'package:network_retrofit/src/models/user/user_settings_entity.dart';
 import 'package:network_retrofit/src/models/user/verifyotp_entity.dart';
 import 'package:network_retrofit/src/models/voucher/vouchers_response_entity.dart';
 import 'package:retrofit/retrofit.dart';
+
 import '../models/cart_voucher_remove/cart_voucher_remove_entity.dart';
 import '../models/logout_entity/logout_response_entity.dart';
-
+import '../models/orderItem_entity/order_item_response_entity.dart';
 import '../models/orderItem_entity/orderitems_response_entity.dart';
 import '../models/order_cancel/order_cancel_response_entity.dart';
-import '../models/orderItem_entity/order_item_response_entity.dart';
+import '../models/order_status/order_status_response_entity.dart';
 import '../models/product/promotions_response_entity.dart';
 import '../models/user/user_exists_entity.dart';
 import '../models/user/user_profile_entity.dart';
@@ -76,7 +75,6 @@ abstract class RetrofitService {
 
   //Product
 
-
   @GET("getCart")
   Future<HttpResponse<CartResponseEntity>> getCart(int userId);
 
@@ -85,9 +83,8 @@ abstract class RetrofitService {
     @Body() AddtoCartRequest addCartRequest,
   );
 
-
   @POST("addvouchertoCart")
-  Future<HttpResponse<CartVoucherEntity>> addVouchertoCart(
+  Future<HttpResponse> addVouchertoCart(
     @Body() CartVoucherAddRequest cartVoucherAddRequest,
   );
 
@@ -180,4 +177,7 @@ abstract class RetrofitService {
   Future<HttpResponse<OrderItemsResponseEntity>> getPendingOrderList(
       @Body() String? orderId);
 
+  @GET("getOrderStatus")
+  Future<HttpResponse<OrderStatusResponseEntity>> getOrderStatus(
+      @Query('orderIdOrTrackingId') String orderIdOrTrackingId);
 }

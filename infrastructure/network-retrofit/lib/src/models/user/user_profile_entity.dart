@@ -1,7 +1,9 @@
 import 'package:data/data.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:network_retrofit/src/models/orderItem_entity/order_item_entity.dart';
+import 'package:network_retrofit/src/models/orderItem_entity/order_item_response_entity.dart';
 import 'package:network_retrofit/src/models/product/product_entity.dart';
+import 'package:network_retrofit/src/models/product/product_response_entity.dart';
 
 import '../address/address_entity.dart';
 
@@ -20,9 +22,9 @@ class UserProfileEntity
   @JsonKey(name: 'address')
   AddressEntity address;
   @JsonKey(name: 'orderHistory')
-  List<OrderItemEntity> orderHistory;
+  List<OrderItemResponseEntity> orderHistory;
   @JsonKey(name: 'favoriteProducts')
-  List<ProductEntity> favoriteProducts;
+  List<ProductResponseEntity> favoriteProducts;
 
   factory UserProfileEntity.fromJson(Map<String, dynamic> json) =>
       _$UserProfileEntityFromJson(json);
@@ -51,18 +53,18 @@ class UserProfileEntity
             apartment: data.address.apartment),
         email: data.email,
         favoriteProducts: data.favoriteProducts
-            .map((e) => ProductEntity(
+            .map((e) => ProductResponseEntity(ProductEntity(
                 id: e.id,
                 currencyId: e.currencyId,
                 name: e.name,
                 description: e.description,
                 imageUrl: e.imageUrl,
                 category: e.category,
-                price: e.price))
+                price: e.price)))
             .toList(),
         mobile: data.mobile,
         orderHistory: data.orderHistory
-            .map((e) => OrderItemEntity(
+            .map((e) => OrderItemResponseEntity(OrderItemEntity(
                 orderId: e.orderId,
                 paymentMode: e.paymentMode,
                 deliveryDate: e.deliveryDate,
@@ -82,7 +84,7 @@ class UserProfileEntity
                     description: e.product.description,
                     imageUrl: e.product.imageUrl,
                     category: e.product.category,
-                    price: e.product.price)))
+                    price: e.product.price))))
             .toList(),
         userId: data.userId);
   }
@@ -103,37 +105,37 @@ class UserProfileEntity
         email: email,
         favoriteProducts: favoriteProducts
             .map((e) => Product(
-                id: e.id,
-                name: e.name,
-                description: e.description,
-                imageUrl: e.imageUrl,
-                price: e.price,
-                category: e.category,
-                currencyId: e.currencyId))
+                id: e.productEntity.id,
+                name: e.productEntity.name,
+                description: e.productEntity.description,
+                imageUrl: e.productEntity.imageUrl,
+                price: e.productEntity.price,
+                category: e.productEntity.category,
+                currencyId: e.productEntity.currencyId))
             .toList(),
         mobile: mobile,
         orderHistory: orderHistory
             .map((e) => OrderItem(
-                orderId: e.orderId,
+                orderId: e.orderItemEntity.orderId,
                 product: Product(
-                    id: e.product.id,
-                    name: e.product.name,
-                    description: e.product.description,
-                    imageUrl: e.product.imageUrl,
-                    price: e.product.price,
-                    category: e.product.category,
-                    currencyId: e.product.currencyId),
-                paymentMode: e.paymentMode,
-                deliveryDate: e.deliveryDate,
+                    id: e.orderItemEntity.product.id,
+                    name: e.orderItemEntity.product.name,
+                    description: e.orderItemEntity.product.description,
+                    imageUrl: e.orderItemEntity.product.imageUrl,
+                    price: e.orderItemEntity.product.price,
+                    category: e.orderItemEntity.product.category,
+                    currencyId: e.orderItemEntity.product.currencyId),
+                paymentMode: e.orderItemEntity.paymentMode,
+                deliveryDate: e.orderItemEntity.deliveryDate,
                 address: Address(
-                    id: e.address.id,
-                    streetName: e.address.streetName,
-                    country: e.address.country,
-                    city: e.address.city,
-                    pincode: e.address.pincode,
-                    floor: e.address.floor,
-                    building: e.address.building,
-                    apartment: e.address.apartment)))
+                    id: e.orderItemEntity.address.id,
+                    streetName: e.orderItemEntity.address.streetName,
+                    country: e.orderItemEntity.address.country,
+                    city: e.orderItemEntity.address.city,
+                    pincode: e.orderItemEntity.address.pincode,
+                    floor: e.orderItemEntity.address.floor,
+                    building: e.orderItemEntity.address.building,
+                    apartment: e.orderItemEntity.address.apartment)))
             .toList());
   }
 }

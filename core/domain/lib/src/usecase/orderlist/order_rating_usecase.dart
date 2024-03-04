@@ -1,6 +1,5 @@
 import 'package:domain/domain.dart';
 
-import '../../../domain.dart';
 import '../base/base_usecase.dart';
 
 class SubmitOrderRatingUseCase
@@ -30,14 +29,15 @@ class OrderRatingUseCaseParam extends Params {
 
   @override
   Either<AppError, bool> verify() {
-    if (Validator.isnotRated(rating))
+    if (Validator.isnotRated(rating)) {
       return Left(
         AppError(
             throwable: Exception(),
             error: ErrorInfo(message: ''),
             type: ErrorType.notRated),
       );
-    else
+    } else {
       return right(true);
+    }
   }
 }

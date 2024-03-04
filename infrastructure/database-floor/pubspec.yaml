@@ -15,7 +15,8 @@ dependencies:
     path: ../../dependency-injection/
   data:
     path: ../../core/data
-  floor: ^1.3.0
+  # floor: ^1.3.0
+  floor: 
 
 dev_dependencies:
   lints: ^2.0.0

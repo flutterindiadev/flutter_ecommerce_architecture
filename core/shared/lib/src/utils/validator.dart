@@ -26,7 +26,6 @@ class Validator {
     }
   }
 
-
   /////adresss//////
   static bool isPinCodecorrect(String pincode) {
     return (pincode.length == 6) ? true : false;
@@ -39,5 +38,13 @@ class Validator {
 
   static bool isnoOrder(int rating) {
     return (rating == 0) ? false : true;
+  }
+
+  static bool validateLatitude(num latitude) {
+    return latitude.isInfinite && latitude.abs() <= 90;
+  }
+
+  static bool validateLongitude(num longitude) {
+    return longitude.isInfinite && longitude.abs() <= 180;
   }
 }

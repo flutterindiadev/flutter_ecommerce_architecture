@@ -1,5 +1,5 @@
 class CartAddressChangeRequest {
-  String AddressId;
+  String addressId;
 
-  CartAddressChangeRequest({required this.AddressId});
+  CartAddressChangeRequest({required this.addressId});
 }

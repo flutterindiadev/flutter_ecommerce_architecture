@@ -3,7 +3,7 @@ import 'package:domain/src/usecase/base/base_usecase.dart';
 
 class SelectCategoryUsecase
     extends BaseUseCase<BaseError, SelectCategoryUsecaseParams, List<Product>> {
-  ProductRepository _productRepository;
+  final ProductRepository _productRepository;
 
   SelectCategoryUsecase(this._productRepository);
 

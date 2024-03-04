@@ -4,7 +4,7 @@ import '../base/base_usecase.dart';
 
 class OrderCancelUsecase
     extends BaseUseCase<NetworkError, OrderCancelUsecaseParam, OrderCancel> {
-  OrderRepository _orderRepository;
+  final OrderRepository _orderRepository;
   OrderCancelUsecase(this._orderRepository);
 
   @override

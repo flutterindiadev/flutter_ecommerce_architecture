@@ -1,7 +1,6 @@
-import 'dart:convert';
-
 import 'package:data/data.dart';
 import 'package:json_annotation/json_annotation.dart';
+
 part 'order_rating_entity.g.dart';
 
 @JsonSerializable()

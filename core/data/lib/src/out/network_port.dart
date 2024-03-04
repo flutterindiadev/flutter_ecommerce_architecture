@@ -11,7 +11,6 @@ abstract class NetworkPort {
   Future<Either<NetworkError, CartVoucherRemove>> removeVoucherfromCart(
       {required CartVoucherRemoveRequest cartVoucherRemoveRequest});
 
-
   //User
 
   Future<Either<NetworkError, User>> loginWithEmail(
@@ -46,7 +45,6 @@ abstract class NetworkPort {
   //products
 
   Future<Either<NetworkError, List<Product>>> getProducts();
-
 
   Future<Either<NetworkError, Cart>> removeFromCart(
       {required RemovefromCartRequest removefromCartRequest});
@@ -100,4 +98,7 @@ abstract class NetworkPort {
 
   Future<Either<NetworkError, List<OrderItem>>> getPending(
       {required String orderId});
+
+  Future<Either<NetworkError, OrderStatus>> getOrderStatus(
+      {required String orderIdorTrackingId});
 }

@@ -13,7 +13,7 @@ class CartAddressChangeUseCase extends BaseUseCase<NetworkError,
       {required CartAddressChangeUseCaseParams params}) {
     return cartRepository.changeCartAddress(
         cartAddressChangeRequest:
-            CartAddressChangeRequest(AddressId: params.addressId));
+            CartAddressChangeRequest(addressId: params.addressId));
   }
 }
 
@@ -25,14 +25,15 @@ class CartAddressChangeUseCaseParams extends Params {
 
   @override
   Either<AppError, bool> verify() {
-    if (Validator.isEmpty(addressId))
+    if (Validator.isEmpty(addressId)) {
       return Left(
         AppError(
             throwable: Exception(),
             error: ErrorInfo(message: ''),
             type: ErrorType.addressIsEmpty),
       );
-    else
+    } else {
       return right(true);
+    }
   }
 }
