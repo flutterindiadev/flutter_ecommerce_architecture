@@ -7,7 +7,10 @@ class PermissionAdaptor implements PermissionPort {
   @override
   Future<Either<PermissionError, AppPermission>>
       requestLocationPermission() async {
-    final response = await safePermissionCall(Permission.location.request());
+    final response = await safePermissionCall(Permission.location
+        .onDeniedCallback(() async => await openAppSettings())
+        .onPermanentlyDeniedCallback(() async => await openAppSettings())
+        .request());
 
     return response.fold((l) => Left(l),
         (r) => Right(AppPermission(isLocationPermissionGranted: r.isGranted)));
